@@ -1,0 +1,15 @@
+---
+title: Production Engineering from DevOps to MLOps
+author: Arnab Bose and Sebastien Donadio
+rights: MIT License
+lang: en-US
+mainlang: english
+otherlang: english
+tags: [devops, mlops]
+abstract: |
+  This book takes a DevOps approach to MLOps and uniquely positions how MLOps is an extension of well-established DevOps principles using real-world use cases. It leverages multiple DevOps concepts and methodologies such as CI/CD and software testing. It also demonstrates the additional concepts from MLOps such as continuous training that expands CI/CD/CT to build, operationalize and monitor ML models.
+# Filter preferences:
+# - pandoc-crossref
+linkReferences: true
+---
+

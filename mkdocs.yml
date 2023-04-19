@@ -1,0 +1,71 @@
+site_name: Production Engineering from DevOps to MLOps
+site_description: The book on production engineering using DevOps and MLOps
+site_author: Arnab Bose and Sebastien Donadio
+repo_url: https://github.com/devopsmlops
+docs_dir: chapters 
+
+nav:
+  - Home: 00-index.md
+  - Introduction:
+      - 01-intro00.md
+      - 02-intro01.md
+  - Software Development Engineering:
+      - 03-chapter1.md
+      - 04-chapter2.md
+      - 05-chapter3.md
+  - Machine Learning Model Engineering:
+      - 06-chapter4.md
+      - 07-chapter5.md
+      - 08-chapter6.md
+      - 09-chapter7.md
+      - 10-chapter8.md
+      - 11-chapter9.md
+  - Software Deployment Engineering:
+      - 12-chapter10.md
+      - 13-chapter11.md
+      - 14-chapter12.md
+      - 15-chapter13.md
+      - 16-chapter14.md
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+#    - navigation.sections
+
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+  analytics:
+    provider: google
+    property: G-PFVDW9Q796
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite

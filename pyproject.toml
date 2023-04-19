@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "Production Engineering from DevOps to MLOps"
+version = "0.1.0"
+description = "The book on production engineering using DevOps and MLOps"
+authors = ["Sebastien Donadio <sebastien.donadio@gmail.com>", "Arnab Bose <bosearnab@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs-material = "^8.5.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
