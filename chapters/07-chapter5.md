@@ -36,7 +36,7 @@ Figure 5.1: Time on data from academia to industry
 ###  Exploratory Data Analysis (EDA)
 
 
-As explained in the last chapter, a good start with data analysis is to check for statistical metrics such as mean, median, standard deviation, missing data, and correlation.  If the data has multiple categories, check for imbalance where categories have unequal proportions of data points. This data exploration step is EDA. Note that EDA is a statistical approach that is valid across all types of data and independent of the business use case. Unlike feature engineering, we discuss next.
+As explained in the last chapter, a good start with data analysis is to check for statistical metrics such as mean, median, standard deviation, missing data, and correlation.  If the data has multiple categories, check for imbalance where categories have unequal proportions of data points. This data exploration step is EDA. Note that EDA is a statistical approach that is valid across all types of data and independent of the business use case. Unlike feature engineering that we discuss next.
 
 
 ###  Feature Engineering
@@ -76,7 +76,7 @@ Figure 5.2: Data versioning example
 </center>
 
 
-The above concepts are illustrated in Figure 5.2. You start with the original data as it was acquired/collected. Post verification of the data, there are different options to validate the data such as removal of outliers, imputation to fill missing data, mean centering, and winsorizing, among others. There are different strategies  for data imputation starting from mean imputation to least squares to nearest neighbors. Mean centering means that you subtract the mean value of the data from each data point. This moves the data to be centered around the mean while leaving the distribution unchanged. On the other hand, winsorizing means you remove the extreme values of the data to limit the effect of possible outliers. While some operations are commutative (remove outliers, mean centering), others are dependent on the sequence. Most importantly, not all operations may be needed.
+The above concepts are illustrated in Figure 5.2. You start with the original data as it was acquired/collected. Post verification of the data, there are different options to validate the data such as removal of outliers, imputation to fill missing data [1], mean centering, and winsorizing, among others. There are different strategies  for data imputation starting from mean imputation to least squares to nearest neighbors. Mean centering means that you subtract the mean value of the data from each data point. This moves the data to be centered around the mean while leaving the distribution unchanged. On the other hand, winsorizing means you remove the extreme values of the data to limit the effect of possible outliers. While some operations are commutative (remove outliers, mean centering), others are dependent on the sequence. Most importantly, not all operations may be needed.
 
 
 At the outset, it is not clear what will work best from the perspective of model training and model metrics. So you may have to try different options with different sequencing. Data versioning keeps this exercise manageable with data lineage that allows you to switch between different versions. Each version of the data is expected to deliver different models with different parameter values. So the data is the primary driver toward parameters, as we see in detail in the next section.
@@ -85,7 +85,7 @@ At the outset, it is not clear what will work best from the perspective of model
 ###  Image data versioning
 
 
-Unlike structured data, image data changes between versions do not include changes to the underlying image (  Figure 5.3a)  . Instead, it incorporates changes in the bounding boxes or image segmentation as demonstrated in Figure 5.4b. One approach often utilized is to store such meta-information separate from the underlying image and   version of that   meta-data. For example, store the bounding boxes' information as meta-data separate from the underlying image as shown in Figure 5.4c. And when the bounding boxes are changed or labeled, update the meta-data version.
+Unlike structured data, image data changes between versions do not include changes to the underlying image (  Figure 5.3a)  . Instead, it incorporates changes in the bounding boxes or image segmentation as demonstrated in Figure 5.4b. One approach often utilized is to store such meta-information separate from the underlying image and   version that   meta-data. For example, store the bounding boxes' information as meta-data separate from the underlying image as shown in Figure 5.4c. And when the bounding boxes are changed or labeled, update the meta-data version.
 
 
 <center>
@@ -143,7 +143,7 @@ Source:   [https://cocodataset.org](https://www.google.com/url?q=https://cocodat
 ##  Software Stack 2.0
 
 
-As Andrej Karpathy put it “Gradient descent can write better code than you. I’m sorry” . Quite a straightforward way to say that the data is responsible for the parameter values. We identify the algorithm to use and determine its specification (i.e. number of parameters to estimate). That generates a shell with initial parameter values. Data then populate those parameter values using optimization techniques such as gradient descent. This is referred to as software stack 2.0.
+As Andrej Karpathy put it “Gradient descent can write better code than you. I’m sorry” [2]. Quite a straightforward way to say that the data is responsible for the parameter values. We identify the algorithm to use and determine its specification (i.e. number of parameters to estimate). That generates a shell with initial parameter values. Data then populate those parameter values using optimization techniques such as gradient descent. This is referred to as software stack 2.0.
 
 
 In contrast, software stack 1.0 is deterministic coding where you have functions with parameter values written in the code and the function pre- and post-conditions are clear. In contrast, software 2.0 parameter values are dependent on optimization techniques driven by the data, so that code behavior is probabilistic as demonstrated in Figure 5.4.
@@ -168,10 +168,10 @@ Figure 5.4: Software stack 2.0 where the software parameters are determined by d
 ##  Data Governance
 
 
-Given the importance of data in software 2.0, data governance is a critical component in any enterprise’s data management strategy. Data governance covers the availability, validation, usability, privacy, and security of the data. Security and privacy of the data are covered in the next sections of this chapter.
+Given the importance of data in software 2.0, data governance is a critical component in any enterprise’s data management strategy [3]. Data governance covers the availability, validation, usability, privacy, and security of the data. Security and privacy of the data are covered in the next sections of this chapter.
 
 
-The first part which includes data sourcing, validation, usability, and transformations is documented using Datasheet for datasets   [[4]](Chapter5.html#ftnt4) [4]    (it includes some security and privacy as well). The datasheet approach addresses the needs of both the data creators and the data consumers, enables communication between them, and promotes transparency, accountability, and reuse of data.
+The first part which includes data sourcing, validation, usability, and transformations is documented using Datasheet for datasets   [[4]](Chapter5.html#ftnt4) (it includes some security and privacy as well). The datasheet approach addresses the needs of both the data creators and the data consumers, enables communication between them, and promotes transparency, accountability, and reuse of data.
 
 
 The datasheet covers the following set of questions (summary) with information on the dataset -
@@ -274,7 +274,7 @@ There is a question of where to add the noise that divides DP into 2 strategies 
 1.   Local DP   - randomness added to each data point. This requires no data curator but does add more noise to the dataset.
 
 
-An example of Global DP is noise added to the output of a database query. The DB administrator is the data curator who queries the database, handles the original data, and then adds noise to the dataset. Another example of Global DP is the US 2020 census data   [[7]](Chapter5.html#ftnt7) [7]   .
+An example of Global DP is noise added to the output of a database query. The DB administrator is the data curator who queries the database, handles the original data, and then adds noise to the dataset. Another example of Global DP is the US 2020 census data   [[7]](Chapter5.html#ftnt7).
 
 
 An example of local DP is a toy example of a survey where a student is asked if she/he is attending the University of Chicago. In response, each student follows this logic (that adds noise to each data value):   1.   Flips a coin.
@@ -287,7 +287,7 @@ So if we know how many students said “Yes” to attending the University of Ch
 ![](images/images5/image7.png)
 
 
-Pytorch implements DP in a python package called opacus   [[8]](Chapter5.html#ftnt8) [8]   . Tensorflow DP uses DP-Stochastic Gradient Descent. Both clip gradients and then add random noise to them. Note that there is a privacy vs accuracy trade-off. As shown in Figure 5.6 with an increase in privacy (go down the y-axis to lower vulnerability), accuracy goes down. As with most trade-offs, there is a sweet spot after which the drop in accuracy does not justify the increase in privacy guarantees.
+Pytorch implements DP in a python package called opacus   [[8]](Chapter5.html#ftnt8). Tensorflow DP uses DP-Stochastic Gradient Descent. Both clip gradients and then add random noise to them. Note that there is a privacy vs accuracy trade-off. As shown in Figure 5.6 with an increase in privacy (go down the y-axis to lower vulnerability), accuracy goes down. As with most trade-offs, there is a sweet spot after which the drop in accuracy does not justify the increase in privacy guarantees.
 
 
 
@@ -349,7 +349,7 @@ In this chapter, we understand the importance of data not just from data governa
 [[7]](Chapter5.html#ftnt_ref7)      [https://dataskeptic.com/blog/episodes/2020/differential-privacy-at-the-us-census](https://www.google.com/url?q=https://dataskeptic.com/blog/episodes/2020/differential-privacy-at-the-us-census&sa=D&source=editors&ust=1681619213413642&usg=AOvVaw0dh2EvBBE0EMObp105Ffsd)
 
 
-[[8]](Chapter5.html#ftnt_ref8) [8]      [https://github.com/pytorch/opacus](https://www.google.com/url?q=https://github.com/pytorch/opacus&sa=D&source=editors&ust=1681619213414066&usg=AOvVaw1bFaJxvc_TNQfsfEGIdwqh)
+[[8]](Chapter5.html#ftnt_ref8)      [https://github.com/pytorch/opacus](https://www.google.com/url?q=https://github.com/pytorch/opacus&sa=D&source=editors&ust=1681619213414066&usg=AOvVaw1bFaJxvc_TNQfsfEGIdwqh)
 
 
-[[9]](Chapter5.html#ftnt_ref9) [9]      [https://faker.readthedocs.io/en/master/](https://www.google.com/url?q=https://faker.readthedocs.io/en/master/&sa=D&source=editors&ust=1681619213414280&usg=AOvVaw2kd2RNkgvh1ooPmEXWwdMS)
+[[9]](Chapter5.html#ftnt_ref9)     [https://faker.readthedocs.io/en/master/](https://www.google.com/url?q=https://faker.readthedocs.io/en/master/&sa=D&source=editors&ust=1681619213414280&usg=AOvVaw2kd2RNkgvh1ooPmEXWwdMS)
