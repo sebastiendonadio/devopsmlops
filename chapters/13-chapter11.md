@@ -205,10 +205,10 @@ A/B tests are anonymous research in which the subjects are not made aware that a
 The difference between A/B testing and canary testing is that the first one, the two versions are known to be functional. A/B testing focuses is to check the preference of the user while canary testing is to test if a new feature will work better. If this new feature doesn’t work, it will be easy to roll back to the previous version.
 
 
-##  Multi-Armed Bandit Testing (MAB)   added by Arnab
+##  Multi-Armed Bandit Testing (MAB)
 
 
-The challenge with A/B testing from the previous section is that there is no way to prioritize a specific model (say A or B) based on its performance while in production. This is what can be done with multi-armed bandit testing (MAB). MAB is a simplified version of reinforcement learning that balances exploration and exploitation. Assume you have chosen a model for production deployment. Exploration is when you are exploring other models and comparing their performance vis-a-vis your production model. Exploitation is when you are focused only on the production model to squeeze out the best performance.
+The challenge with A/B testing from the previous section is that there is no way to dynamically prioritize a specific model (say A or B) based on its performance while in production. This is what can be done with multi-armed bandit testing (MAB). MAB is a simplified version of reinforcement learning that balances exploration and exploitation. Assume you have chosen a model for production deployment. Exploration is when you are exploring other models and comparing their performance vis-a-vis your production model. Exploitation is when you are focused only on the production model to squeeze out the best performance.
 
 
 In MAB testing, the routing of production data is governed by a router that analyzes the performance of the models under test. So for a scenario akin to A/B testing, the router would evaluate the performances of A and B models. Based on the evaluation result, the majority of the inference data is routed to the best-performing model. Minority subsets are randomly routed to the remaining model(s), as illustrated in Figure 11.3. This dynamic strategy is a balance between exploitation (the majority of the data to the best-performing model) and exploration (the minority of the data to the other models). The phrase multi-armed comes from the scenario where you are always evaluating and exploring multiple models.
@@ -232,7 +232,7 @@ Figure 11.3: Multi-Armed Bandit testing
 </center>
 
 
-##  Shadow Mode Testing - Champion-Challenger Paradigm   added by Arnab
+##  Shadow Mode Testing - Champion-Challenger Paradigm
 
 
 Sometimes you may not have the luxury to have multiple production-ready models for A/B or MAB testing. You may have only a single update to the current production model. But you still want to be sure that your model will perform as expected in production before a complete switchover. Even better, you want to make sure that this new update has better model performance. In the industry, a champion-challenger paradigm is used for this approach. The incumbent production model is the champion and the new updated model is the challenger. Until the challenger proves itself (i.e. has a better performance), the champion is not dislodged.
