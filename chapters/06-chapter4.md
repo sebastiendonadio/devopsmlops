@@ -53,8 +53,7 @@ Using the above complexities as guides, the desiderata of a MLOps platform are:
 3.   Governance - govern all data validation, transformations and preparation such that sensitive fields (for example, gender, race, ethnicity) are not used for predictive modeling, and track all ML model releases for audit and reproducibility.
 
 
-1.   Collaboration - enable team management via
-1.   Team development - ML model building in enterprises is a team sport so support multi-user development via DevOps concepts such as CI/CD.
+1.   Collaboration and Team development - ML model building in enterprises is a team sport so support multi-user development via DevOps concepts such as CI/CD.
 2.   Experimentation in a centralized place - track all ML experimentation so that model building is consistent with the data version, the algorithm version and the third-party library version that is enforced when the team is using the same ML pipeline.
 3.   Reuse of pipelines - since ML model building is an iterative process, make it simple to change parameters and reuse ML pipelines for multiple experiments.
 
@@ -64,7 +63,7 @@ Using the above complexities as guides, the desiderata of a MLOps platform are:
 2.   Not-steep learning curve - leverage established ML model building principles such that there is no steep learning curve.
 
 
-1.   Managed deployment - enable easy model deployment via
+1.   Managed deployment - enable easy model deployment via containerization.
 1.   Containerization - make it simple to build containers with a few clicks to deploy ML models.
 2.   Model monitoring   - support model monitoring with notifications such as model drift and data drift.
 
@@ -150,7 +149,8 @@ Figure 4.4: ML model indirect dependency via external user interaction
 
 
 The components that comprise this phase are:
-   1.   Determine Algorithm - depending on the business problem and data characteristics, you need to determine the algorithm to use.
+
+1.   Determine Algorithm - depending on the business problem and data characteristics, you need to determine the algorithm to use.
 
 
 1.   Design Pipeline - once an algorithm is determined, put together the pipeline that will use the data and the algorithm.
@@ -171,7 +171,7 @@ The components that comprise this phase are:
 ###  Deployment Management
 
 
-This phase includes deployment of ML models, production testing, monitoring, and configuration challenges such as modifications that can be tracked and reproducible (Figure 4.5).
+This phase includes deployment of ML models, production testing, monitoring, and configuration challenges such as modifications that can be tracked and are reproducible (Figure 4.5).
 
 
 <!-- <p align="center">
@@ -188,7 +188,9 @@ Figure 4.5: ML model production configuration challenges
 </center>
 
 
-The components that comprise this phase are -      1.   Define and Configure Inference Service - configure where the model is going to run in production as inference service.
+The components that comprise this phase are -      
+
+1.   Define and Configure Inference Service - configure where the model is going to run in production as inference service.
 
 
 1.   Deploy and Run Inference Service - once the production environment is ready, deploy and run the model.
