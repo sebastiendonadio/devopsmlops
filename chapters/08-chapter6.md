@@ -58,7 +58,7 @@ Therefore feature engineering holds the promise of reusability among the differe
 ##  What is a Feature Store?
 
 
-A feature store is a repository for features that includes feature development and feature cataloging. This promotes feature discovery and reuses across different ML applications. A feature store connects to the data ingestion and is the interface between an ML algorithm and data. The basic components of a feature store are shown in Figure 6.2 and discussed below   [[1]](Chapter6.html#ftnt1) [1]   .
+A feature store is a repository for features that includes feature development and feature cataloging. This promotes feature discovery and reuses across different ML applications. A feature store connects to the data ingestion and is the interface between an ML algorithm and data. The basic components of a feature store are shown in Figure 6.2 and discussed below   [[1]](Chapter6.html#ftnt1).
 
 
 <!-- <p align="center">
@@ -81,7 +81,7 @@ Figure 6.2: Feature store data flow for ML model from data ingestion to serving 
 
 The 3 major components of a feature store are
 
-1.   An offline feature store   - this is for batch processing of features that do not have strict latency requirements. For example, t  he offline store can be implemented as a distributed file system (ADLS, S3, etc) or a data warehouse (Redshift, Snowflake, BigQuery, Azure Synapse, etc).
+1.   An offline feature store   - this is for batch processing of features that do not have strict latency requirements. For example, the offline store can be implemented as a distributed file system (ADLS, S3, etc) or a data warehouse (Redshift, Snowflake, BigQuery, Azure Synapse, etc).
 
 
 1.   An online feature store   - this is for real-time processing of features serving a   feature vector   as input for an ML model with strict latency requirements, usually of the order of milliseconds. For example, the online store is ideally implemented as a key-value store (eg. Redis, Mongo, Hbase, Cassandra, etc.) for fast lookups depending on the latency requirement.
@@ -132,8 +132,11 @@ As indicated in #1 Transformation, an important part of a feature store is autom
 Aggregations and transformations are two popular feature engineering that can be automated for both continuous and categorical variables.
 
 Let's review the data type with their transformation and aggregation techniques:
+
 - Continuous|Univariate - absolute value, imputation, mean center, winsorize, smoothing/averaging, binning, change scale of data using for example log or inverse or power   [[2]](Chapter6.html#ftnt2)  transformations <br> Bivariate - the difference between 2 variables, odds-ratio   [[3]](Chapter6.html#ftnt3)|. The aggregatios are mean, median, standard deviation, variance.
+
 - Categorical unordered aka nominal|Dummy encoding - assign numbers to the levels and ensure that if there are   K   levels you encode using only   K-1   new variables. This is to ensure that for algorithms such as linear regression the coefficient matrix is not over-determined and is invertible. <br> One hot encoding - encode each level as a vector where if there are   K   levels the vector is of size   K. <br> Feature vectors - use vectors to encode each level  (vectors are usually <   K   size if there are   K   levels) where the distance (such as Euclidean) between the vectors are semantically determined. Thus semantically similar levels have vectors close to each other by distance measure. For example, encoding colors with feature vectors will have blue and azure vectors close to each other in distance. The aggregations are count/frequency of a specific level, the number of times a level is hit in a given period.
+
 - Categorical ordered aka ordinal|Numbering - assign numbers in ascending or descending order. For example, if an alert has low, medium, and high levels, the corresponding encoding maybe 0, 1, or 2 to indicate the order of criticality. For the aggregations, they are the same as unordered categorical.
 
 
