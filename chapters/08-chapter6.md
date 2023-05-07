@@ -71,6 +71,7 @@ A feature store is a repository for features that includes feature development a
 <center>
 
 ![](images/images6/image2.png)
+  
 Figure 6.2: Feature store data flow for ML model from data ingestion to serving both training and inference
 
 </center>
