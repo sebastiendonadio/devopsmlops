@@ -10,8 +10,8 @@ This book is also available on [Leanpub](https://leanpub.com/thejsway) (PDF, EPU
 
 This book takes a DevOps approach to MLOps and uniquely positions how MLOps is an extension of well-established DevOps principles using real-world use cases. It leverages multiple DevOps concepts and methodologies such as CI/CD and software testing. It also demonstrates the additional concepts from MLOps such as continuous training that expands CI/CD/CT to build, operationalize and monitor ML models. 
 
-* **Beginner-friendly yet comprehensive**. From the very basics of programming up to front-end and back-end web development, a lot of topics are covered in a simple and approachable way. No prior knowledge needed!
-* **Easy to follow**. Code along directly in your browser or build an efficient JavaScript development environment on your local machine.
+* **Beginner-friendly yet comprehensive**. From the very basics of DevOps up to advanced MLOps concepts, a lot of topics are covered in a simple and approachable way. No prior knowledge needed!
+* **Easy to follow**. Code along directly in your browser or build Jupyter notebooks on your local machine.
 
 ## Supporting this work
 
