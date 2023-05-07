@@ -187,6 +187,7 @@ Figure 7.5: ML model development from manual to AutoML
 </center>
 
 
+
 Closely associated with the concepts of AutoML, semi-auto ML and manual ML is how much code you will have to write when using them. As indicated in Figure 7.5, this introduces the associated concepts of low-code or no-code that differentiate from full-code -
 
 
@@ -266,6 +267,7 @@ Approval Workflows are processes designed to ensure the authorized flow of infor
 Figure 7.6: Model approval workflow based on different roles and responsibilities
 
 </center>
+
 
 
 Approval Workflows are based on the concepts of Roles and Requests. A workflow typically defines a Request (to be performed by a specific Role), and multiple levels of approvals to be
