@@ -14,7 +14,7 @@ We start this chapter highlighting the need for monitoring ML models.
 ##  Why is ML Model Monitoring Needed?
 
 
-You need to monitor an ML model in production because the performance of the model may deviate from the performance observed during training. Let us understand how this may happen.
+You need to monitor a ML model in production because the performance of the model may deviate from the performance observed during training. Let us understand how this may happen.
 
 
 As illustrated in Figure 12.1, you can think of an ML model as having data inputs   X   and output   y  . In terms of probabilities, there is the input probability   P(X)  , the input-conditional output probability   P(y|X),   and the output marginal probability   P(y)  .
@@ -37,7 +37,8 @@ Figure 12.1: Input-output relation in an ML model
 </center>
 
 
-The model performance deterioration may be due to a change in any of the 3 probabilities outlined in Figure 12.1. Starting with   P(X)  , a data shift in distribution between training and production is known as a covariate shift. Note that the other probabilities do not change. This shift is a violation of a key   assumption in ML model development that states that production data is from the same distribution as the training data. In other words, the patterns identified by the developed ML model during training are valid in the future in the not-yet-seen production data. In covariate shift, this is no longer valid and we look at it in the next section.
+
+The model performance deterioration may be due to a change in any of the 3 probabilities outlined in Figure 12.1. Starting with   P(X)  , a data shift in distribution between training and production is known as a covariate shift. Note that the other probabilities do not change. This shift is a violation of a key   assumption in ML model development that states that production data is from the same distribution as the training data. In other words, the assumption states that the patterns identified by the developed ML model during training are valid in the future in the not-yet-seen production data. In covariate shift, this is no longer valid and we look at it in the next section.
 
 
 If   P(y)   is different in production from training (and the other probabilities remain unchanged), then that shift is known as the prior probability shift and we look at it later in this chapter. Finally, if   P(y|X)   (with the other probabilities unchanged) is different in production from training, that is known as concept shift and is discussed later in the chapter.
@@ -76,7 +77,7 @@ Figure 12.2: Biased training sample distribution different from the test sample
 </center>
 
 
-1.   Non-stationary environment - an ML production model that is receiving outside data may be exposed to a non-stationary environment where the data characteristics (such as mean and variance) are changing with time (as illustrated in Figure 12.3) and the data processing does not correct for it. For example, trending data such as movie ticket sales over the years is data from a non-stationary environment. Note that there are data processing techniques available to change a non-stationary data to a stationary data but are beyond the scope of this chapter.
+2.   Non-stationary environment - an ML production model that is receiving outside data may be exposed to a non-stationary environment where the data characteristics (such as mean and variance) are changing with time (as illustrated in Figure 12.3) and the data processing does not correct for it. For example, trending data such as movie ticket sales over the years is data from a non-stationary environment. Note that there are data processing techniques available to change a non-stationary data to a stationary data but are beyond the scope of this chapter.
 
 
 <!-- <p align="center">
@@ -93,6 +94,7 @@ Figure 12.2: Biased training sample distribution different from the test sample
 Figure 12.3: Non-stationary feature
 
 </center>
+
 
 
 Given that now we understand why production data may be different, in the next sections we cover characteristics of those differences, how to detect them and importantly, how to correct for them such that the ML model regains performance in production.
@@ -127,10 +129,10 @@ An example of covariate shift is when an image ML model is developed to detect c
 
 There are different statistical tests and machine learning models that can be used to detect covariate shifts in the ML features. In this chapter, we outline different statistical tests for the distribution comparison of different types of features as follows -
 
-1.   Categorical feature - you can use the chi-squared   [[2]](Chapter12.html#ftnt2) [2]    test that uses the contingency table.
+1.   Categorical feature - you can use the chi-squared   [[2]](Chapter12.html#ftnt2) test that uses the contingency table.
 
 
-1.   Numerical feature - you can use the Kolmogorov-Smirnov   [[3]](Chapter12.html#ftnt3) [3]    test to compare distributions.
+1.   Numerical feature - you can use the Kolmogorov-Smirnov   [[3]](Chapter12.html#ftnt3) test to compare distributions.
 
 
 ###  Correct Covariate Shift
@@ -173,7 +175,7 @@ An example of a prior probability shift is when fraudulent credit transactions g
 ###  Detect Prior Probability Shift
 
 
-Prior probability shift can be detected using a methodology called Population Stability Index (PSI). PSI is a comparative measure of how much a variable has changed between two samples. It divides the training data output into bins and uses the bins to compare with production data output   [[5]](Chapter12.html#ftnt5) [5]   . Therefore, if the production data output has a different distribution, then the PSI detects it.
+Prior probability shift can be detected using a methodology called Population Stability Index (PSI). PSI is a comparative measure of how much a variable has changed between two samples. It divides the training data output into bins and uses the bins to compare with production data output   [[5]](Chapter12.html#ftnt5). Therefore, if the production data output has a different distribution, then the PSI detects it.
 
 
 ###  Correct Prior Probability Shift
@@ -209,7 +211,7 @@ Data drift and prior probability shifts can happen suddenly or gradually over ti
 ###  Detect Model Performance Change
 
 
-During ML model development with training data, the evaluation metrics of the model are tracked to determine acceptable limits. Examples of such metrics are given in Table 12.1. The tracking of the metrics enables us to determine the mean and standard deviation. Thereafter in production, monitoring metrics can be set such that if the model performance is beyond n standard deviation from the mean, then a flag is raised. In the example in Figure 12.6, the accuracy metric performance bound is set to be +/- 2 standard deviations from the mean.
+During ML model development with training data, the evaluation metrics of the model are tracked to determine acceptable limits. Examples of such metrics are given in Table 12.1. The tracking of the metrics enables us to determine the mean and standard deviation. Thereafter in production, monitoring metrics can be set such that if the model performance is beyond _n_ standard deviation from the mean, then a flag is raised. In the example in Figure 12.6, the accuracy metric performance bound is set to be +/- 2 standard deviations from the mean.
 
 
 |Regression Models| Classification Model
