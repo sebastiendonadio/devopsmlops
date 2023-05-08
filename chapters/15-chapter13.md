@@ -1,7 +1,7 @@
 # 13 - Evaluating Fairness
 
 
-In this thirteenth chapter, we discuss ML model fairness. This Is an important topic for ML ethics, specifically bias. Now that you know how to build, deploy, test, and monitor ML models, you may need to ensure that your ML model is fair. Specifically, in this chapter you will be able to:
+In this thirteenth chapter, we discuss ML model fairness. This is an important topic for ML ethics, specifically bias. Now that you know how to build, deploy, test, and monitor ML models, you may need to ensure that your ML model is fair. Specifically, in this chapter you will be able to:
 
 -   Understand what is bias and what is fairness in ML models
 -   Learn how to detect bias in ML models
@@ -32,7 +32,7 @@ There are different sources of bias in ML models. We start with the most popular
 1.   Data bias - when the data is biased towards or against a particular idea, or group of phenomena, the trained ML model inherits that bias.  For example, assume you are building an ML model to target financial asset management advisors to buy your company's mutual funds. The ML model determines which advisors will buy the fund based on their profile, and geographical location, among others. If most of the advisors in California tend to buy your funds relative to other states, then your data is biased from a geographical perspective. Consequently, during inference, the ML model is likely to indicate that California-based advisors are going to buy your mutual fund. In reality, that may not happen and your ML model may overestimate your mutual fund selling success for California leading to high false positive (i.e. ML model estimates yes to buying funds but the actual is a no).
 
 
-1.   Algorithmic bias - when you are building an ML model, you can choose to overfit or underfit on training data. If the algorithm overfits a dataset, then the inference for that dataset will likely have a high variance with a lot of false positives and false negatives (i.e. ML model estimates do not match actuals). For example, an ML model cross-selling to retail customers may focus on a specific customer segment and overfit on that segment. Therefore the prediction if cross-sell to a customer from the overfit segment may have a high precision (i.e. the ML model estimate matches the actual). But the ML model may also have a lot of false positives and false negatives for customers from a different segment.
+1.   Algorithmic bias - when you are building an ML model, you can choose to overfit or underfit on training data. If the algorithm overfits a dataset, then the inference for that dataset will likely have a high variance with a lot of false positives and false negatives (i.e. ML model estimates do not match actuals). For example, an ML model cross-selling to retail customers may focus on a specific customer segment and overfit on that segment. Therefore the prediction of whether to cross-sell to a customer from the overfit segment may have a high precision (i.e. the ML model estimate matches the actual). But the ML model may also have a lot of false positives and false negatives for customers from a different segment.
 
 
 1.   Business bias - we have seen how different business and global circumstances can change the interpretation of an ML model output in Chapter 8. For example, during high inflation loan applications can be subjected to higher approval thresholds than during low inflation.
@@ -91,7 +91,7 @@ To detect if there is data bias you should perform exploratory data analysis to 
 Bias correction often mitigates (but not eliminates) ML model bias. This comes at a cost (remember the adage: there is no free lunch). And the cost is ML model accuracy. Think of it this way - if you had all the details for a specific group of retail customers, then you would know them like family. Any ML model built using that data would have a near-perfect prediction of their likes/dislikes. But the model is very unfair since you are biased towards those customers. To make it fair, you need to give up some information (forget something about the customers in that group) that would reduce the ML model accuracy. That is the trade-off.
 
 
-Once you have your ML model ready, identify the area(s) where you can make the ML model fair. Quantity fairness before you make any changes. Quantify accuracy using your defined metric. Start making the ML model fairer in steps. Calculate the accuracy for each step. You will notice that as you make your ML model fairer, you are likely giving up on accuracy. In other words, fairness and accuracy form a Pareto pair as illustrated in Figure 13.2.
+Once you have your ML model ready, identify the area(s) where you can make the ML model fair. Quantify fairness before you make any changes. Calculate accuracy using your defined metric. Start making the ML model fairer in steps. Calculate the accuracy for each step. You will notice that as you make your ML model fairer, you are likely giving up on accuracy. In other words, fairness and accuracy form a Pareto pair as illustrated in Figure 13.2.
 
 
 
