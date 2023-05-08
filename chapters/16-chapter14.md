@@ -13,7 +13,7 @@ We start with the concept of antifragility.
 ##  What is Antifragility?
 
 
-Antifragility as the name suggests is the opposite of fragility. So what does that mean? Let's start with fragility - it means things or systems that break down when they are subject to randomness, in the form of vibrations or something else. So what is the opposite of this phenomenon - well, it is not that things or systems can handle randomness. That is called robustness. The opposite is that instead of breaking down, systems become stronger when subject to randomness. This is called antifragility.
+Antifragility as the name suggests is the opposite of fragility. So what does that mean? Let's start with fragility - it means things or systems that break down when they are subject to randomness, for example with vibrations. So what is the opposite of this phenomenon - well, it is not that things or systems can handle randomness. That is called robustness. The opposite is that instead of breaking down, systems become stronger when subject to randomness. This is called antifragility.
 
 
 Machines are fragile - they do not do well when encountering randomness. Humans, on the other hand, are antifragile. When we manage unforeseen situations (i.e. randomness) we gain additional experience and become stronger. In the next section, we discuss what is the association between antifragility and ML models.
@@ -69,9 +69,11 @@ After you prioritize the failures, run controlled chaos experiments such as -
 <center>
 
 ![](images/images14/image1.png)
-Figure 14.1: Plot to prioritize system failures in terms of how often they happen (Likelihood) and their influence (Impact)
+
+  Figure 14.1: Plot to prioritize system failures in terms of how often they happen (Likelihood) and their influence (Impact)
 
 </center>
+
 
 Failures or fault lines exposed by these tests once corrected are going to make your ML model production system stronger. That is antifragility leading to robust ML models and systems.
 
@@ -82,7 +84,7 @@ In the next section, we discuss the environmental impact of training and running
 ##  Environmental Impact of ML Models
 
 
-The last topic in this book is the environmental impact of ML models. While we are all aware of the amazing achievements of ML models, we are not privy to their environmental impact. Training ML models requires storage and processing power to analyze vast amounts of data and run multiple experiments across days and weeks. This is quantified in terms of carbon emissions.
+The last topic in this book is the environmental impact of ML models. While we are all aware of the amazing achievements of ML models, we may not be privy to their environmental impact. Training ML models requires storage and processing power to analyze vast amounts of data and run multiple experiments across days and weeks. This is quantifiable in terms of carbon emissions.
 
 
 It is recommended that when you are building pipelines and training ML models, you also calculate the carbon emissions. CodeCarbon   [[5]](Chapter14.html#ftnt5)       is a software package that seamlessly integrates into the Python codebase. The solution was jointly developed by Mila, a world leader in AI research based in Montreal, GAMMA, BCG’s global data science and AI team, Haverford College in Pennsylvania, and Comet.ml, an MLOps solution provider. It estimates the amount of carbon dioxide ($CO_2$) produced by the computing resources used to execute the code. The objective is to incentivize developers to optimize their code efficiency in terms of carbon emissions.
