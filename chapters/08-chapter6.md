@@ -151,7 +151,12 @@ Let's review the data type with their transformation and aggregation techniques:
 
 | Transformation | Aggregation |
 |-----------------|-----------------|
-| Dummy encoding - assign numbers to the levels and ensure that if there are   K   levels you encode using only   K-1   new variables. This is to ensure that for algorithms such as linear regression the coefficient matrix is not over-determined and is invertible. <br> One hot encoding - encode each level as a vector where if there are   K   levels the vector is of size   K. <br> Feature vectors - use vectors to encode each level  (vectors are usually <   K   size if there are   K   levels) where the distance (such as Euclidean) between the vectors are semantically determined. Thus semantically similar levels have vectors close to each other by distance measure. For example, encoding colors with feature vectors will have blue and azure vectors close to each other in distance. | count/frequency of a specific level, the number of times a level is hit in a given period |
+| Dummy encoding - assign numbers to the levels and ensure that if there are   K   levels you encode using only   K-1   new variables. This is to ensure that for algorithms such as linear regression the coefficient matrix is not over-determined and is invertible. <br> One hot encoding - encode each level as a vector where if there are   K   levels the vector is of size   K. | count/frequency of a specific level, the number of times a level is hit in a given period |
+
+
+| Transformation | Aggregation |
+|-----------------|-----------------|
+| Feature vectors - use vectors to encode each level  (vectors are usually <   K   size if there are   K   levels) where the distance (such as Euclidean) between the vectors are semantically determined. Thus semantically similar levels have vectors close to each other by distance measure. For example, encoding colors with feature vectors will have blue and azure vectors close to each other in distance. | count/frequency of a specific level, the number of times a level is hit in a given period |
 
 <p align="center">
 (c) Categorical ordered aka ordinal 
