@@ -134,11 +134,12 @@ Aggregations and transformations are two popular feature engineering that can be
 
 Let's review the data type with their transformation and aggregation techniques:
 
-<p align="center">
-(a) Linear Regression
+
+(a) 
+  Linear Regression
   Transformation - Continous.
   Aggregation - Univariate - absolute value, imputation, mean center, winsorize, smoothing/averaging, binning, change scale of data using for example log or inverse or power   [[2]](Chapter6.html#ftnt2)  transformations <br> Bivariate - the difference between 2 variables, odds-ratio   [[3]](Chapter6.html#ftnt3) | Mean, median, standard deviation, variance.
-</p>
+
 
 
 
