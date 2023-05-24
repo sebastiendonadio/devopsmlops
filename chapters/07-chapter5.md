@@ -154,6 +154,7 @@ In contrast, software stack 1.0 is deterministic coding where you have functions
   <br>
   <div align="center">
   <em>Figure 5.4: Software stack 2.0 where the software parameters are determined by data
+  </div>
 </em>
 </p> -->
 
