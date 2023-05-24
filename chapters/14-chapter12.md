@@ -17,7 +17,7 @@ We start this chapter highlighting the need for monitoring ML models.
 You need to monitor a ML model in production because the performance of the model may deviate from the performance observed during training. Let us understand how this may happen.
 
 
-As illustrated in Figure 12.1, you can think of an ML model as having data inputs   X   and output   y  . In terms of probabilities, there is the input probability   P(X)  , the input-conditional output probability   P(y|X),   and the output marginal probability   P(y)  .
+As illustrated in Figure 12.1, you can think of a ML model as having data inputs   X   and output   y  . In terms of probabilities, there is the input probability   P(X)  , the input-conditional output probability   P(y|X),   and the output marginal probability   P(y)  .
 
 
 
@@ -38,7 +38,7 @@ Figure 12.1: Input-output relation in an ML model
 
 
 
-The model performance deterioration may be due to a change in any of the 3 probabilities outlined in Figure 12.1. Starting with   P(X)  , a data shift in distribution between training and production is known as a covariate shift. Note that the other probabilities do not change. This shift is a violation of a key   assumption in ML model development that states that production data is from the same distribution as the training data. In other words, the assumption states that the patterns identified by the developed ML model during training are valid in the future in the not-yet-seen production data. In covariate shift, this is no longer valid and we look at it in the next section.
+The model performance deterioration in production may be due to a change in any of the 3 probabilities from training that are outlined in Figure 12.1. Starting with   P(X)  , a data shift in distribution between training and production is known as a covariate shift. Note that the other probabilities do not change. This shift is a violation of a key   assumption in ML model development that states that production data is from the same distribution as the training data. In other words, the assumption states that the patterns identified by the developed ML model during training are valid in the future in the not-yet-seen production data. In covariate shift, this is no longer valid and we look at it in the next section.
 
 
 If   P(y)   is different in production from training (and the other probabilities remain unchanged), then that shift is known as the prior probability shift and we look at it later in this chapter. Finally, if   P(y|X)   (with the other probabilities unchanged) is different in production from training, that is known as concept shift and is discussed later in the chapter.
@@ -211,7 +211,7 @@ Data drift and prior probability shifts can happen suddenly or gradually over ti
 ###  Detect Model Performance Change
 
 
-During ML model development with training data, the evaluation metrics of the model are tracked to determine acceptable limits. Examples of such metrics are given in Table 12.1. The tracking of the metrics enables us to determine the mean and standard deviation. Thereafter in production, monitoring metrics can be set such that if the model performance is beyond _n_ standard deviation from the mean, then a flag is raised. In the example in Figure 12.6, the accuracy metric performance bound is set to be +/- 2 standard deviations from the mean.
+During ML model development with training data, the evaluation metrics of the model are tracked to determine acceptable limits. Examples of such metrics are given in Table 12.1. The tracking of the metrics enables us to determine the mean and standard deviation. Thereafter in production, monitoring metrics can be set such that if the model performance is beyond _n_ (=2 or 3) standard deviation from the mean, then a flag is raised. In the example in Figure 12.6, the accuracy metric performance bound is set to be +/- 2 standard deviations from the mean.
 
 
 |Regression Models| Classification Model
