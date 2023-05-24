@@ -4,7 +4,7 @@
 In this fifth chapter, we understand the importance of data in ML model development and ways to protect data privacy. By the end of this chapter, you will be able to:
 
 -   Appreciate the importance of data in ML models
--   See the need for data versioning
+-   Reason the need for data versioning
 -   Understand how to ensure data privacy
 
 
@@ -42,7 +42,7 @@ As explained in the last chapter, a good start with data analysis is to check fo
 ###  Feature Engineering
 
 
-In contrast to EDA, feature engineering is very much use-case-dependent. This is where you build custom features that are relevant to the ML model, which in turn is dependent on the use case. For example, if you are building an ML model to predict the winner of a tennis match, then features such as double-fault, and aces served, are relevant. But they are not if you are building an ML model for credit card fraud detection. Instead, fraud-relevant features such as the number of transactions in the last three days, and the location of the transactions, are important. However, for either use case, EDA is valid.
+In contrast to EDA, feature engineering is very much use-case-dependent. This is where you build custom features that are relevant to the ML model, which in turn is dependent on the use case. For example, if you are building an ML model to predict the winner of a tennis match, then features such as double-fault, and aces served, are relevant. But they are not if you are building an ML model for credit card fraud detection. Instead, fraud-relevant features such as the number of transactions in the last three days, and the location of the transactions, are important. We outline different types of automated feature engineering in Chapter 6. However, for either use case, EDA is valid.
 
 
 In conclusion, understanding the data details is very important to extract the most from the data. You should expect to spend the majority of an ML project time exploring, analyzing, and transforming the data. Given the time spent on the data, there is a requirement (just like code) to be able to try out different data variations and roll back to an earlier version, capabilities that are provided by a versioning system. This underscores the need for data versioning.
@@ -51,7 +51,7 @@ In conclusion, understanding the data details is very important to extract the m
 ##  Data Versioning
 
 
-As mentioned above, the time spent on analyzing and trying out different things with the data needs to be systematic with a lineage. That is provided by a data versioning system. Typically a data versioning system provides capabilities such as
+As mentioned above, the time spent on analyzing and trying different things with the data needs to be systematic with a lineage. That is provided by a data versioning system. Typically a data versioning system provides capabilities such as
 
 1.   Origin determination so that you can always go back to the raw data as it was collected before any custom modifications.
 
@@ -85,7 +85,7 @@ At the outset, it is not clear what will work best from the perspective of model
 ###  Image data versioning
 
 
-Unlike structured data, image data changes between versions do not include changes to the underlying image (  Figure 5.3a)  . Instead, it incorporates changes in the bounding boxes or image segmentation as demonstrated in Figure 5.4b. One approach often utilized is to store such meta-information separate from the underlying image and   version that   meta-data. For example, store the bounding boxes' information as meta-data separate from the underlying image as shown in Figure 5.4c. And when the bounding boxes are changed or labeled, update the meta-data version.
+Unlike structured data, image data changes between versions do not include changes to the underlying image (  Figure 5.3a)  . Instead, it incorporates changes in the bounding boxes or image segmentation as demonstrated in Figure 5.4b. One approach often utilized is to store such meta-information separate from the underlying image and   version that   meta-data. For example, store the image segmentation information as meta-data separate from the underlying image as shown in Figure 5.4c. And when the image segmentation is edited or changed, update the meta-data version.
 
 
 <center>
@@ -152,6 +152,7 @@ In contrast, software stack 1.0 is deterministic coding where you have functions
 <!-- <p align="center">
   <img src="images/images5/image11.png" alt="Alt text" width="70%" />
   <br>
+  <div align="center">
   <em>Figure 5.4: Software stack 2.0 where the software parameters are determined by data
 </em>
 </p> -->
@@ -168,10 +169,10 @@ Figure 5.4: Software stack 2.0 where the software parameters are determined by d
 ##  Data Governance
 
 
-Given the importance of data in software 2.0, data governance is a critical component in any enterprise’s data management strategy [3]. Data governance covers the availability, validation, usability, privacy, and security of the data. Security and privacy of the data are covered in the next sections of this chapter.
+Given the importance of data in software 2.0, data governance is a critical component in any enterprise’s data management strategy [3]. Data governance covers availability, validation, usability, privacy, and security of the data. Security and privacy of the data are covered in the next sections of this chapter.
 
 
-The first part which includes data sourcing, validation, usability, and transformations is documented using Datasheet for datasets   [[4]](Chapter5.html#ftnt4) (it includes some security and privacy as well). The datasheet approach addresses the needs of both the data creators and the data consumers, enables communication between them, and promotes transparency, accountability, and reuse of data.
+The first part that includes data sourcing, validation, usability, and transformations is documented using Datasheet for datasets   [[4]](Chapter5.html#ftnt4) (it includes some security and privacy as well). The datasheet approach addresses the needs of both the data creators and the data consumers, enables communication between them, and promotes transparency, accountability, and reuse of data.
 
 
 The datasheet covers the following set of questions (summary) with information on the dataset -
@@ -249,7 +250,7 @@ The general characteristics of federated learning are -
 1.   Training data is unbalanced – non-uniform use of training data by different clients.
 
 
-1.   Training is massively distributed - the number of local model training is generally more than the average number of data points per client.
+1.   Training is distributed - the number of local model training is generally more than the average number of data points per client.
 
 
 1.   Training has limited communication – offline or on slow or inexpensive media to send the parameter values to a centralized server.
@@ -268,7 +269,7 @@ The mathematical definition of DP is as follows - assume 2 datasets   ![](images
 
 There is a question of where to add the noise that divides DP into 2 strategies -
 
-1.   Global DP   - randomness added to the data transformation for the entire dataset. This adds less noise to the dataset but requires a trusted data curator to handle the original dataset.
+1.   Global DP   - randomness added to the data transformation for the entire dataset. This adds less noise to the dataset but requires a trusted data curator to handle the original dataset and transform all the data.
 
 
 1.   Local DP   - randomness added to each data point. This requires no data curator but does add more noise to the dataset.
@@ -277,7 +278,9 @@ There is a question of where to add the noise that divides DP into 2 strategies 
 An example of Global DP is noise added to the output of a database query. The DB administrator is the data curator who queries the database, handles the original data, and then adds noise to the dataset. Another example of Global DP is the US 2020 census data   [[7]](Chapter5.html#ftnt7).
 
 
-An example of local DP is a toy example of a survey where a student is asked if she/he is attending the University of Chicago. In response, each student follows this logic (that adds noise to each data value):   1.   Flips a coin.
+An example of local DP is a toy example of a survey where a student is asked if she/he is attending the University of Chicago. In response, each student follows this logic (that adds noise to each data value):   
+
+1.   Flips a coin.
 2.   If tails then respond truthfully.
 3.   If heads, then flips again and responds “Yes” if heads and “No” if tails.
 
@@ -317,7 +320,7 @@ Another way to address data privacy is to use synthetic data for model building.
 1.   Using real data - data privacy for the real data is guaranteed through techniques such as differential privacy and then that data is used to generate additional synthetic data using ML models. For example, generate synthetic credit card transaction data using a Generative Adversarial Network (GAN) and a small real dataset.
 
 
-1.   Without any real data - there are no data privacy issues as the entire dataset is generated with synthetic data developed with simulated models and using knowledge from subject matter experts. For example, generate healthcare claims data where the features or the data fields are standard and their types and values are created using Python libraries such as Faker   [[9]](Chapter5.html#ftnt9) [9]    as determined by subject experts.
+1.   Without any real data - there are no data privacy issues as the entire dataset is generated with synthetic data developed with simulated models and using knowledge from subject matter experts. For example, generate healthcare claims data where the features or the data fields are standard and their types and values are created using Python libraries such as Faker   [[9]](Chapter5.html#ftnt9) as determined by subject experts.
 
 
 ##  Summary
