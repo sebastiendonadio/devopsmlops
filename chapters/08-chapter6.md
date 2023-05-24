@@ -102,7 +102,7 @@ With the above main feature store components, the functionalities supported are:
 1.   Versioning   - need to version features so that different modifications can be made to assess their impact on ML model training and you can roll back to earlier versions if required. Akin to data versioning that is discussed in Chapter 5.
 
 
-1.   Catalog   - need to make the features discoverable by indexing the features with metadata so that other ML applications know what is available. An example of this discovery is using a   natural language-based query retrieval. This is often done by the Feature Registry. Furthermore, feature stores can enhance the visibility of existing features by recommending possible features based on a query of certain attributes and metadata. This empowers not-very-experienced data scientists with insights associated with experienced senior data scientists, thus enhancing the efficiency of the data science team.
+1.   Catalog   - need to make the features discoverable by indexing the features with metadata so that other ML applications know what is available. An example of this discovery is using a   natural language-based query retrieval. This is often done by the Feature Registry. Furthermore, feature stores can enhance the visibility of existing features by recommending features based on a query of certain attributes and metadata. This empowers not-very-experienced data scientists with insights associated with experienced senior data scientists, thus enhancing the efficiency of the data science team.
 
 
 1.   Serving   - need to support both training (batch mode) and inference (such as streaming) modes.
@@ -112,7 +112,7 @@ With the above main feature store components, the functionalities supported are:
 1.   Access -  control to decide who gets access to work on which features.
 
 
-1.   Ownership - Identify feature ownership i.e. responsibility for maintaining and updating features.
+1.   Ownership - identify feature ownership i.e. responsibility for maintaining and updating features.
 
 
 1.   Regulatory Audit - check for bias/ethics and comply with compliance regulations to ensure that the developed features are not in violation.
