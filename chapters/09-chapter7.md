@@ -45,10 +45,10 @@ So you can have combinatorial versioning of algorithms (Figure 7.1) with hyperpa
 
 |Algorithm | Hyperparameters | 
 |----------|-----------------|
-| Linear Regression | Regularization parameter,...|
+| Linear Regression | Regularization parameter|
 | Random forest | Number of estimators |
 | Support Vector Machine | C and gamma |
-| Neural network|Learning rate,...|
+| Neural network|Learning rate,activation function, etc.|
 <p align="center">
 Table 7.1: Algorithms and corresponding hyperparameters.
 </p>
@@ -81,10 +81,10 @@ As demonstrated, algorithm versioning helps you keep track of all the moving par
 As outlined above, a machine learning model training may be paused for many reasons, some decided by you such as suspend now and pick it up later to free up computation resources, others not decided by you such as out-of-memory or execution crash. Irrespective of the reason, you would want to restart the training from the last completed point as opposed to restarting from the beginning. This is what model checkpointing allows as demonstrated in Figure 7.3. Checkpoints A, B and C save the state of a model during training and validation. Checkpoints B and C pickup from the saved model state in checkpoint A and B, respectively, with each region indicated differently in the loss curves.
 
 
-Model checkpointing is similar to model save but with a subtle difference. In the former, you have the model source code so you are only saving the parameter values. In the latter, you are serializing the complete model - parameter values and model architecture. ML libraries such as TensorFlow   [[2]](Chapter7.html#ftnt2)     and PyTorch   [[3]](Chapter7.html#ftnt3)     have APIs for model checkpointing.
+Model checkpointing is similar to model save but with a subtle difference. In the former, you have the model source code so you are only saving the parameter values. In the latter, you are serializing the complete model - parameter values and model architecture. ML libraries such as TensorFlow (save_weights()) [[2]](Chapter7.html#ftnt2)     and PyTorch (save())  [[3]](Chapter7.html#ftnt3)     have APIs for model checkpointing.
 
 
-Armed with algorithm versioning, hyperparameter versioning and model checkpointing, now you are ready to make a serious impact on a business project. However, manually determining which combination gives the best result (as evaluated by a business metric) is cumbersome. Automated machine learning is an automated methodology that does this automatically. In other words, it builds models with multiple combinations of different algorithms and different hyperparameters and ranks them based on a user-defined model evaluation metric.
+Armed with algorithm versioning, hyperparameter versioning and model checkpointing, now you are ready to make a serious impact on a business project. However, manually determining which combination of the above gives the best result (as evaluated by a business metric) is cumbersome. Automated machine learning is an automated methodology that does this automatically. In other words, it builds models with multiple combinations of different algorithms and different hyperparameters and ranks them based on a user-defined model evaluation metric.
 
 
 <!-- <p align="center">
@@ -168,7 +168,7 @@ Below are examples of open-source automl libraries -
 Using AutoML reveals an interesting spectrum in ML model development. At one end of the spectrum is automated ML development as defined in this chapter. At the other end of the spectrum is manual ML development where a data scientist works with the data and algorithms and trains them (maybe with model checkpointing) using open-source libraries such as scikit-learn, TensorFlow, PyTorch, among others. Additionally, there is an interesting methodology in the middle that we discuss next.
 
 
-As shown in Figure 7.5, there is a semi-automated ML between the AutoML and manual ML model development where you have off-the-shelf pre-trained models available for use. Such pre-trained models target domain-specific use cases. Their usage is expected in enterprises with data science teams who want accelerators to solve a business problem. These enterprises do not have the luxury of starting from scratch due to the competitive landscape but have data scientists who can improve and fine-tune the pre-trained models. Let us explain using a couple of examples. Assume two pre-trained models - an employee churn propensity model to assign a probability to an employee to leave a company and a patient infection propensity model to assign a probability to a hospital patient to develop a site infection. Both models are developed using domain-specific data collected from multiple sources that give them reasonable predictive power. The employee churn model uses data from different enterprises with varying numbers of employees. The patient infection model uses data from different hospitals of different sizes (as determined by the number of beds). Both these models have reasonable accuracy out of the box when applied to a specific enterprise or a specific hospital. However, to increase their accuracy for that specific company or hospital, the respective data science teams can fine-tune the models using transfer learning   [[5]](Chapter7.html#ftnt5) [5]    with the company or hospital-specific dataset.
+As shown in Figure 7.5, there is a semi-automated ML between the AutoML and manual ML model development where you have off-the-shelf pre-trained models available for use. Such pre-trained models target domain-specific use cases. Their usage is expected in enterprises with data science teams who want accelerators to solve a business problem. These enterprises do not have the luxury of starting from scratch due to the competitive landscape but have data scientists who can improve and fine-tune the pre-trained models. Let us explain using a couple of examples. Assume two pre-trained models - an employee churn propensity model to assign a probability to an employee to leave a company and a patient infection propensity model to assign a probability to a hospital patient to develop a site infection. Both models are developed using domain-specific data collected from multiple sources that give them reasonable predictive power. The employee churn model uses data from different enterprises with varying numbers of employees. The patient infection model uses data from different hospitals of different sizes (as determined by the number of beds). Both these models have reasonable accuracy out of the box when applied to a specific enterprise or a specific hospital. However, to increase their accuracy for that specific company or hospital, the respective data science teams can fine-tune the models using transfer learning   [[5]](Chapter7.html#ftnt5) with the company or hospital-specific dataset.
 
 
 
@@ -203,7 +203,7 @@ Low-code   –  when you use similar graphical tools but may have to update sett
 ##  Model Card
 
 
-Just like a nutrients facts label tells you every detail about the product - how it was made, its constituents, etc., similarly a model card   [[6]](Chapter7.html#ftnt6) [6]    (introduced by Google) tells you everything about the model. Specifically, a model card outlines
+Just like a nutrients facts label tells you every detail about the product - how it was made, its constituents, etc., similarly a model card   [[6]](Chapter7.html#ftnt6) (introduced by Google) tells you everything about the model. Specifically, a model card outlines
 
 1.   Model details   - basic information about when the model was built, version, license details etc.
 
@@ -214,7 +214,7 @@ Just like a nutrients facts label tells you every detail about the product - how
 1.   Factors   - what are the relevant factors used to build the model.
 
 
-1.   Metrics   - what are the performance measures to evaluate model impact
+1.   Metrics   - what are the performance measures to evaluate model impact.
 
 
 1.   Evaluation data   - what evaluation dataset (and preprocessing, if any) was used to analyze the model.
@@ -238,10 +238,10 @@ As you can see a model card details everything pertinent and important there is 
 ##  Model Governance
 
 
-Given the possible Cambrian explosion of data versions, hyperparameters, and algorithm versions that constitute a specific model, it is imperative that enterprises require strong ML model governance to keep track of which model is currently in production and who authorized the last production release. This is managed using approval workflows.
+Given the possible Cambrian explosion of data versions, hyperparameters, and algorithm versions that constitute a specific model, it is imperative that enterprises require strong ML model governance to keep track of which model is currently in production and who authorized the last production release. A methodology to manage this is using approval workflows.
 
 
-Approval Workflows are processes designed to ensure the authorized flow of information and/or artifacts in organizations. Such workflows are very familiar in everyday enterprise activities such as applications for leave, expense reimbursements, equipment allocation, and the like. There are industry-standard best practices for these workflows, which each organization modifies to suit its needs and culture. They have also become commonplace in the world of software development, for example,
+Approval Workflows are processes designed to ensure the authorized flow of information and/or artifacts in organizations. Such workflows are very familiar in everyday enterprise activities such as applications for leave, expense reimbursements, equipment allocation, and the like. There are industry-standard best practices for these workflows that each organization modifies to suit its needs and culture. They have also become commonplace in the world of software development, for example,
 
 -   A developer issues a “Pull Request” (PR) to a Tech Lead / Manager. The code is reviewed and corrected before being merged into the release branch of the code repository.
 
@@ -270,15 +270,13 @@ Figure 7.6: Model approval workflow based on different roles and responsibilitie
 
 
 
-Approval Workflows are based on the concepts of Roles and Requests. A workflow typically defines a Request (to be performed by a specific Role), and multiple levels of approvals to be
-
-provided by other Roles. In the first example provided above, the Developer Role made a Pull Request to be approved by a Manager Role.
+Approval Workflows are based on the concepts of Roles and Requests. A workflow typically defines a Request (to be performed by a specific Role), and multiple levels of approvals to be provided by other Roles. In the first example provided above, the Developer Role made a Pull Request to be approved by a Manager Role.
 
 
 In addition, an ideal workflow should be customizable to suit the needs of the organization and should maintain a log of requests and approvals (by whom and when), thus providing a complete audit trail.
 
 
-Let us follow the workflow in Fig. 7.6. Assume a data scientist completes an ML model. Next, a manager reviews the model and provides feedback. Once the model is approved by the manager, it is promoted for validation and testing in quality assurance (QA). In QA, a data analyst (or any QA specialist) tests the model. If the model has issues, then the data analyst provides feedback to the data scientist, the model is rebuilt, and the cycle is repeated. Once the model passes the QA test, the data analyst approves and promotes the model to production. In production, an IT engineer deploys the model. All the workflow roles, responsibilities, and subsequent actions are managed, labeled, identified, and controlled using approval workflows. Such workflows are often managed by MLOps platforms.
+Let us follow the workflow in Fig. 7.6. Assume a data scientist completes an ML model. Next, a manager reviews the model and provides feedback. Once the model is approved by the manager, it is promoted for validation and testing in quality assurance (QA). In QA, a data analyst (or any QA specialist) tests the model. If the model has issues, then the data analyst provides feedback to the data scientist, the model is rebuilt, and the cycle is repeated. Once the model passes the QA test, the data analyst approves and promotes the model to production. In production, an IT engineer deploys the model. All the workflow roles, responsibilities, and subsequent actions are managed, labeled, identified, and controlled using approval workflows. Such workflows are often managed by MLOps platforms [7].
 
 
 In conclusion, the demonstrated approval workflow maintains a complete log of approvals (by whom and when) and promotions (dev to QA and QA to production) for a production ML model. Such model governance improves the ML production lifecycle with streamlined processes and accountability in a collaborative environment.
@@ -309,3 +307,5 @@ In this chapter we understand algorithm versioning and discuss AutoML. We also l
 
 
 [[6]](Chapter7.html#ftnt_ref6)     M. Mitchell et.al.,   Model Cards for Model Reporting  , Assoc. for Computing Machinery, 2019, https://arxiv.org/pdf/1810.03993.pdf
+
+[[7]](Chapter7.html#ftnt_ref7)     https://xpresso.ai/
