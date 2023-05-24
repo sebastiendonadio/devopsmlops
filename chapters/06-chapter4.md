@@ -2,6 +2,7 @@
 
 
 In this fourth chapter, we introduce the motivation and concepts of MLOps. By the end of this chapter, you will be able to:
+
   -   Appreciate the need for MLOps
   -   Get an insight into the challenges in operationalizing ML models
   -   Understand the concepts and principles of MLOps
@@ -20,13 +21,13 @@ The jury is out on how many data science projects do not make it to production, 
 AI/ML model operationalization is similar but not the same as software deployment. Similar because you are writing and managing model code. This is where DevOps principles that have proven to manage hurdles in software production deployment are useful. Concepts such as scripting, task automation and CI/CD outlined in the previous chapters are cornerstones in MLOps.
 
 
-Different because ML model is not just code but has an important data dimension that determines the parameter values. This added complexity has implications in terms of data tracking and how for the same (Python or R or C++) algorithm code you can have different model parameters. MLOps manages this data complexity and we will go into more details on this in the next chapter.
+Different because ML model is not just code but has an important data dimension that determines the parameter values. This added complexity has implications in terms of data tracking and how for the same (Python or R or C++) algorithm code you can have different model parameters. MLOps manages this data complexity and we go into more details on this in the next chapter.
 
 
 ##  ML Operationalization Complexities
 
 
-There are multiple complexities around ML model operationalization that need to be addressed by MLOps (Figure 4.1). ML models deal with a lot of data. They need to have multiple training runs and experiments with possibly different models. Once a model is decided upon it needs to be deployed into production with governance, security and compliance in place. Data assumptions during training may not hold in production so deployed models need to be continuously monitored for drift. Models that have “decayed” need to be retrained and redeployed in a systematic manner.
+There are multiple complexities around ML model operationalization that need to be addressed by MLOps (Figure 4.1). ML models deal with a lot of data. They need to have multiple training runs and experiments with possibly different models. Once a model is decided upon it needs to be deployed into production with governance, security and compliance in place. Data assumptions during training may not hold in production so deployed models need to be continuously monitored for drift. Models that have “decayed” in production need to be retrained and redeployed in a systematic manner.
 
 
 <!-- <p align="center">
@@ -47,18 +48,18 @@ Figure 4.1: Complexities in machine learning (ML) model operationalization
 
 Using the above complexities as guides, the desiderata of a MLOps platform are:
 
-1.   Integration with data infrastructure - enable easy data tracking and management via
+1.   Integration with data infrastructure - enable easy data tracking and management
 1.   Versioning - enforce that any changes to the data (for example, outlier removal, imputation) should be a version change of the data.
 2.   Location independence (cloud, on-premise, hybrid) - allow seamless access to data irrespective of whether it is on the cloud (for example, Amazon S3, Azure blob), on-premise storage or a hybrid combination of both.
 3.   Governance - govern all data validation, transformations and preparation such that sensitive fields (for example, gender, race, ethnicity) are not used for predictive modeling, and track all ML model releases for audit and reproducibility.
 
 
-1.   Collaboration and Team development - ML model building in enterprises is a team sport so support multi-user development via DevOps concepts such as CI/CD.
+1.   Collaboration and team development - ML model building in enterprises is a team sport so support multi-user development via DevOps concepts such as CI/CD.
 2.   Experimentation in a centralized place - track all ML experimentation so that model building is consistent with the data version, the algorithm version and the third-party library version that is enforced when the team is using the same ML pipeline.
 3.   Reuse of pipelines - since ML model building is an iterative process, make it simple to change parameters and reuse ML pipelines for multiple experiments.
 
 
-1.   Ease of adoption - enable established best practices via
+1.   Ease of adoption - enable established best practices using software tools and framework.
 1.   Popular ML libraries / packages - support popular ML libraries (for example scikit-learn, Tensorflow, Pytorch).
 2.   Not-steep learning curve - leverage established ML model building principles such that there is no steep learning curve.
 
@@ -159,10 +160,10 @@ The components that comprise this phase are:
 1.   ML Experiments - post design of the pipeline, run the pipeline for different experiments with different data versions and algorithms.
 
 
-1.   Hyperparameter Tuning - part of the ML experiments include trying different hyperparameters.
+1.   Hyperparameter Tuning - part of the ML experiments include trying different hyperparameters for best model performance.
 
 
-1.   Track Experiments, XAI and Testing - track the outcome of each experiment, compare them side-by-side, run explainability and test the models.
+1.   Track Experiments, Explainable AI (XAI) and Testing - track the outcome of each experiment, compare them side-by-side, run explainability and test the models.
 
 
 1.   Model Card - once the models to be deployed to production are ready, document them using model card.
