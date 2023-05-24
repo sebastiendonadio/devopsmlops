@@ -1,7 +1,7 @@
 # 14 - Exploring Antifragility and ML Model Environmental Impact
 
 
-Congratulations on reaching this last chapter - by now you know how to build, deploy, test, detect bias, and monitor ML models. In this fourteenth chapter, we discuss techniques on how to make your ML model robust and to understand the environmental impact of ML models. In this chapter you will be able to:
+Congratulations on reaching this last chapter - by now you know how to build, deploy, test, detect bias in, and monitor ML models. In this fourteenth chapter, we discuss techniques on how to make your ML model robust and to understand the environmental impact of ML models. In this chapter you will be able to:
 
 -   Understand antifragility and how it can be used to make your ML model robust
 -   Determine the environmental impact of training your ML model and how you can help
@@ -22,7 +22,7 @@ Machines are fragile - they do not do well when encountering randomness. Humans,
 ##  Chaos Engineering - Antifragility with ML Models
 
 
-The concept is to use a human (antifragile) and machine (fragile) tandem to make ML models antifragile. This technique is called chaos engineering   [[1]](Chapter14.html#ftnt1)    and it has an open-source toolkit   [[2]](Chapter14.html#ftnt2)   .  It started with Netflix   [[3]](Chapter14.html#ftnt3)    where they improved the resiliency of their systems by developing a tool called chaos monkeys. They imagined a scenario where monkeys would be let loose in their data center and the monkeys would randomly disable production servers. The test was to check if Netflix could survive this scenario without any impact on the customer.
+The concept is to use a human (antifragile) and machine (fragile) tandem to make ML models antifragile. This technique is called chaos engineering   [[1]](Chapter14.html#ftnt1)    and it has an open-source toolkit   [[2]](Chapter14.html#ftnt2)   .  It started with Netflix   [[3]](Chapter14.html#ftnt3)    where they improved the resiliency of their systems by developing a tool called chaos monkeys. They imagined a scenario where monkeys were let loose in their data center and the monkeys would randomly disable production servers. The test was to check if Netflix could survive this scenario without any impact on the customer.
 
 
 Chaos monkeys expanded to random failures and abnormal conditions across different parts of a production system (for example, production database) and the ability of a system to perform under such duress. Once such conditions were successfully tested, the systems were not only robust but antifragile given that the failures and/or abnormal scenarios exposed fault lines that were plugged to make the system stronger. Chaos monkeys is a tool available on github   [[4]](Chapter14.html#ftnt4)   . In the next section, we go through the principles of chaos engineering to make your ML model production system stronger.
@@ -53,7 +53,7 @@ After you prioritize the failures, run controlled chaos experiments such as -
 1.   Infrastructure - randomly bring down servers within a set group such that you understand and control the failure.
 
 
-1.   Applications - random disable outside servers communicating with the ML model - for example, disable a database that is storing ML model parameters.
+1.   Applications - randomly disable outside servers communicating with the ML model - for example, disable a database that is storing ML model parameters.
 
 
 1.   Process - repeat failures that were discovered earlier and supposed to have been fixed such that the ML model system is robust to them.
@@ -87,7 +87,7 @@ In the next section, we discuss the environmental impact of training and running
 The last topic in this book is the environmental impact of ML models. While we are all aware of the amazing achievements of ML models, we may not be privy to their environmental impact. Training ML models requires storage and processing power to analyze vast amounts of data and run multiple experiments across days and weeks. This is quantifiable in terms of carbon emissions.
 
 
-It is recommended that when you are building pipelines and training ML models, you also calculate the carbon emissions. CodeCarbon   [[5]](Chapter14.html#ftnt5)       is a software package that seamlessly integrates into the Python codebase. The solution was jointly developed by Mila, a world leader in AI research based in Montreal, GAMMA, BCG’s global data science and AI team, Haverford College in Pennsylvania, and Comet.ml, an MLOps solution provider. It estimates the amount of carbon dioxide ($CO_2$) produced by the computing resources used to execute the code. The objective is to incentivize developers to optimize their code efficiency in terms of carbon emissions.
+It is recommended that when you are building pipelines and training ML models, you also calculate the carbon emissions. CodeCarbon   [[5]](Chapter14.html#ftnt5)       is a software package that seamlessly integrates into the Python codebase. The solution was jointly developed by Mila, an AI research based in Montreal, GAMMA, BCG’s global data science and AI team, Haverford College in Pennsylvania, and Comet.ml, an MLOps solution provider. It estimates the amount of carbon dioxide ($CO_2$) produced by the computing resources used to execute the code. The objective is to incentivize developers to optimize their code efficiency in terms of carbon emissions.
 
 
 Additionally, if you are using a cloud provider for ML model training you can use a $CO_2$ calculator   [[6]](Chapter14.html#ftnt6)     to choose the least carbon-emitting data center. One of the factors in the calculation is the power grid used by the cloud provider based on whether the energy is generated using renewable (solar, hydro, wind) or nonrenewable (coal) sources.
