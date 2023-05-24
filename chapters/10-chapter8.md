@@ -65,7 +65,7 @@ A ML pipeline is a workflow to run experiments outlined in the previous section 
 1.   Train a ML model (can be manual or Semi-Auto ML or AutoML from Chapter 7).
 
 
-1.   Calculate model metrics (training error, if possible out-of-sample validation error).
+1.   Calculate model metrics (training error and out-of-sample validation error).
 
 
 1.   Deliver the trained model ready to be deployed if needed (to be determined based on the model metrics) - this completes the experiment.
@@ -177,7 +177,7 @@ Figure 8.4: Complementary Train and Inference ML Pipelines
 ###  Data Feedback and Flywheel
 
 
-As you can see in the Inference pipeline above, there is a “store results + data” component. This component constitutes data feedback and stores new data input to the model during inference. The stored data serves as new training data that is used in the training pipeline.
+As you can see in the Inference pipeline above, there is a “store results + data” component. This component constitutes data feedback and stores new input data to the model during inference. The stored data serves as new training data that is used in the training pipeline.
 
 
 There are 2 types of data feedback in ML models -
@@ -191,7 +191,7 @@ There are 2 types of data feedback in ML models -
 The motivation behind data feedback is to institute a cycle of model retraining and data collection also known as data flywheel (Figure 8.5). The flywheel concept is from Jim Collins   [[3]](Chapter8.html#ftnt3) and it depicts a cycle that is enabled by all the different components and leads to improvement.
 
 
-From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a heuristic time window such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implied) feedback.
+From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a specific time heuristic such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implied) feedback.
 
 In the next section, we outline three popular open-source pipelines for use with your ML code.
 
