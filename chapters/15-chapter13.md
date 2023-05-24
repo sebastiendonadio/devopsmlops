@@ -1,7 +1,7 @@
 # 13 - Evaluating Fairness
 
 
-In this thirteenth chapter, we discuss ML model fairness. This is an important topic for ML ethics, specifically bias. Now that you know how to build, deploy, test, and monitor ML models, you may need to ensure that your ML model is fair. Specifically, in this chapter you will be able to:
+In this thirteenth chapter, we discuss ML model fairness. This is an important topic for ML ethics, specifically bias. Now that you know how to build, deploy, test, and monitor ML models, you need to ensure that your ML model is fair. Specifically, in this chapter you will be able to:
 
 -   Understand what is bias and what is fairness in ML models
 -   Learn how to detect bias in ML models
@@ -18,10 +18,10 @@ In the first section, we discuss bias and fairness.
 Bias is discriminating against a particular idea, group, or phenomenon. For example, you may be biased against a specific team in your favorite sport - you want to win against them and do not want them to do better than your favorite team. Another example is that you may be biased towards your favorite aunt or uncle versus the other relatives.
 
 
-Fairness is to ensure there is no bias, that is no unequal harm or any preferential treatment to a particular idea, group, or phenomenon. Looking at the previous examples, for you to be fair you need to remove the bias against that specific team you want your team to win against and feel the same towards all relatives. As you can imagine, in our daily interactions and society in general there are a lot of biases.
+Fairness is to ensure there is no bias, that is no unequal harm or any preferential treatment to a particular idea, group, or phenomenon. Looking at the previous examples, for you to be fair you need to remove the bias against that specific team you want your team to win against and you need to feel the same towards all relatives. As you can imagine, in our daily interactions and society in general there are a lot of biases.
 
 
-The aforementioned regular biases that exist get captured in data. The same data is used to train ML models and their predictions are based on data patterns that have an underlying bias(es). Though the ML models pick up these underlying bias patterns, note that such pattern recognition is key. Without such patterns, ML models may not be effective. For example, a dataset with no patterns and no bias is white noise, and therefore it has no predictive power. So it is difficult to remove all bias (as per definition) and deploy completely fair ML models. The objective is to ensure that your ML models have no harmful bias that discriminates against a particular idea, group, or phenomenon in society.
+The aforementioned regular biases do get captured in data. The same data is used to train ML models and their predictions are based on data patterns that have an underlying bias(es). Though the ML models pick up these underlying bias patterns, note that such pattern recognition is key. Without such patterns, ML models may not be effective. For example, a dataset with no patterns and no bias is white noise, and therefore it has no predictive power. So it is difficult to remove all bias (as per definition) and deploy completely fair ML models. The objective is to ensure that your ML models have no harmful bias that discriminates against a particular idea, group, or phenomenon in society.
 
 
 ##  ML Model Bias
@@ -32,10 +32,10 @@ There are different sources of bias in ML models. We start with the most popular
 1.   Data bias - when the data is biased towards or against a particular idea, or group of phenomena, the trained ML model inherits that bias.  For example, assume you are building an ML model to target financial asset management advisors to buy your company's mutual funds. The ML model determines which advisors will buy the fund based on their profile, and geographical location, among others. If most of the advisors in California tend to buy your funds relative to other states, then your data is biased from a geographical perspective. Consequently, during inference, the ML model is likely to indicate that California-based advisors are going to buy your mutual fund. In reality, that may not happen and your ML model may overestimate your mutual fund selling success for California leading to high false positive (i.e. ML model estimates yes to buying funds but the actual is a no).
 
 
-1.   Algorithmic bias - when you are building an ML model, you can choose to overfit or underfit on training data. If the algorithm overfits a dataset, then the inference for that dataset will likely have a high variance with a lot of false positives and false negatives (i.e. ML model estimates do not match actuals). For example, an ML model cross-selling to retail customers may focus on a specific customer segment and overfit on that segment. Therefore the prediction of whether to cross-sell to a customer from the overfit segment may have a high precision (i.e. the ML model estimate matches the actual). But the ML model may also have a lot of false positives and false negatives for customers from a different segment.
+1.   Algorithmic bias - when you are building a ML model, you can choose to overfit or underfit on training data. If the algorithm overfits a dataset, then the inference for that dataset will likely have a high variance with a lot of false positives and false negatives (i.e. ML model estimates do not match actuals). For example, a ML model cross-selling to retail customers may focus on a specific customer segment and overfit on that segment. Therefore the prediction of whether to cross-sell to a customer from the overfit segment may have a high precision (i.e. the ML model estimate matches the actual). But the ML model may also have a lot of false positives and false negatives for customers from different segments.
 
 
-1.   Business bias - we have seen how different business and global circumstances can change the interpretation of an ML model output in Chapter 8. For example, during high inflation loan applications can be subjected to higher approval thresholds than during low inflation.
+1.   Business bias - we have seen how different business and global circumstances can change the interpretation of an ML model output in Chapter 8. For example, during high inflation loan applications can be subjected to higher approval thresholds than during low inflation. This bias influences how model output is interpreted.
 
 
 In the next section, we outline how to detect an ML model bias.
@@ -91,7 +91,7 @@ To detect if there is data bias you should perform exploratory data analysis to 
 Bias correction often mitigates (but not eliminates) ML model bias. This comes at a cost (remember the adage: there is no free lunch). And the cost is ML model accuracy. Think of it this way - if you had all the details for a specific group of retail customers, then you would know them like family. Any ML model built using that data would have a near-perfect prediction of their likes/dislikes. But the model is very unfair since you are biased towards those customers. To make it fair, you need to give up some information (forget something about the customers in that group) that would reduce the ML model accuracy. That is the trade-off.
 
 
-Once you have your ML model ready, identify the area(s) where you can make the ML model fair. Quantify fairness before you make any changes. Calculate accuracy using your defined metric. Start making the ML model fairer in steps. Calculate the accuracy for each step. You will notice that as you make your ML model fairer, you are likely giving up on accuracy. In other words, fairness and accuracy form a Pareto pair as illustrated in Figure 13.2.
+Once you have your ML model ready, identify the area(s) where you can make the ML model fair. Quantify fairness before you make any changes. Calculate accuracy using your defined metric. Start making the ML model fairer in steps. Calculate the accuracy for each step. You will notice that as you make your ML model fairer, you are likely giving up on accuracy. In other words, fairness and accuracy form a Pareto pair as illustrated in Figure 13.2. Where you stop is determined by your fairness and accuracy thresholds as mandated by business/regulations.
 
 
 
