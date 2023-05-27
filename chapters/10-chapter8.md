@@ -251,7 +251,7 @@ The popular pipeline frameworks are -
 
 
 
-###  Fine-tuning Large Language Models (LLMops)
+##  Fine-tuning Large Language Models (LLMops)
 
 Large (Language) Models have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit architecture will require 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to fine such large models in an efficient manner. One of the techniques that is popular now is Low-Rank Adaption (LoRA) [[4]](Chapter8.html#ftnt4). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition. The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data.
 
