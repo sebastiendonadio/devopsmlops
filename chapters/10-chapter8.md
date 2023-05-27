@@ -39,7 +39,8 @@ The ability to run the above experimentation wheel is enabled by ML pipelines. A
 <center>
 
 ![](images/images8/image2.png)
-Figure 8.1 - ML experiments
+
+  Figure 8.1 - ML experiments
 
 </center>
 
@@ -83,7 +84,8 @@ A ML pipeline is a workflow to run experiments outlined in the previous section 
 <center>
 
 ![](images/images8/image3.png)
-Figure 8.2: ML pipeline example
+
+  Figure 8.2: ML pipeline example
 
 </center>
 
