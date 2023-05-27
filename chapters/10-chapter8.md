@@ -106,7 +106,8 @@ Pipeline tools manage the flow of tasks through a directed graph representation 
 <center>
 
 ![](images/images8/image1.png)
-Figure 8.3: Directed Acyclic Graph (DAG) used in ML pipelines
+
+  Figure 8.3: Directed Acyclic Graph (DAG) used in ML pipelines
 
 </center>
 
@@ -170,7 +171,8 @@ Note that training and inference pipelines are complementary. The training pipel
 <center>
 
 ![](images/images8/image5.png)
-Figure 8.4: Complementary Train and Inference ML Pipelines
+
+  Figure 8.4: Complementary Train and Inference ML Pipelines
 
 </center>
 
@@ -208,7 +210,8 @@ In the next section, we outline three popular open-source pipelines for use with
 <center>
 
 ![](images/images8/image6.png)
-Figure 8.5: Data Flywheel
+
+  Figure 8.5: Data Flywheel
 
 </center>
 
@@ -232,7 +235,8 @@ depencies:
    - spacy==2.2.3
 ```
 <p align="center">
-Figure 8.6: YAML file from spacy example of MLflow.
+
+  Figure 8.6: YAML file from spacy example of MLflow.
 </p>
 
 The popular pipeline frameworks are -
