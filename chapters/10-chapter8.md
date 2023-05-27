@@ -274,7 +274,7 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 [[3]](Chapter8.html#ftnt_ref3)    J. Collins,    [Good to Great: Why Some Companies Make the Leap and Others Don’t, HarperBusiness, 2001.](https://www.google.com/url?q=https://smile.amazon.com/Good-Great-Some-Companies-Others/dp/0066620996/ref%3Dsr_1_1?keywords%3Djim%2Bcollins%2Bgood%2Bto%2Bgreat%26qid%3D1662917929%26sprefix%3DJim%2Bcol%252Caps%252C103%26sr%3D8-1&sa=D&source=editors&ust=1681619251624332&usg=AOvVaw2Nw2smFXf9pQ0pnNupy-8E)
 
 
-[[4]](Chapter8.html#ftnt_ref4)   E. Hu et al, [LoRA: Low-Rank Adaptation of Large Language Models, 2021] https://arxiv.org/pdf/2106.09685.pdf
+[[4]](Chapter8.html#ftnt_ref4)   E. Hu et al, _LoRA: Low-Rank Adaptation of Large Language Models_, https://arxiv.org/pdf/2106.09685.pdf, 2021.
 
 
 [[5]](Chapter8.html#ftnt_ref5)   https://huggingface.co/docs/peft/task_guides/image_classification_lora 
