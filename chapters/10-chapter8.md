@@ -255,7 +255,7 @@ The popular pipeline frameworks are -
 
 Large (Language) Models have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit architecture will require 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to fine such large models in an efficient manner. One of the techniques that is popular now is Low-Rank Adaption (LoRA) [[4]](Chapter8.html#ftnt4). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition. The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data.
 
-Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is becuase with SVD the significant featuures (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix.
+Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is because with SVD the significant featuures (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix. You can use a HuggingFace guide to try LoRA [[5]](Chapter8.html#ftnt5).
 
 ##  Summary
 
@@ -275,3 +275,6 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 
 
 [[4]](Chapter8.html#ftnt_ref4)   4. E. Hu et al, [LoRA: Low-Rank Adaptation of Large Language Models, 2021] https://arxiv.org/pdf/2106.09685.pdf
+
+
+[[5]](Chapter8.html#ftnt_ref5)   5. https://huggingface.co/docs/peft/task_guides/image_classification_lora 
