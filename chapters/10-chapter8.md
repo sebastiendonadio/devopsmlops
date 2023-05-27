@@ -244,6 +244,13 @@ The popular pipeline frameworks are -
 1.   MLflow (   [https://mlflow.org/](https://www.google.com/url?q=https://mlflow.org/&sa=D&source=editors&ust=1681619251622891&usg=AOvVaw2iy_Rm7bNR0BuXhuY99Jj2)    ) - provides a framework to track experiment metrics and  parameters and visualize and compare them in a browser.
 
 
+
+###  Fine-tuning Large Language Models (LLMops)
+
+Large (Language) Models have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit architecture will require 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to fine such large models in an efficient manner. One of the techniques that is popular now is Low-Rank Adaption (LoRA) [[4]](Chapter8.html#ftnt4). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition. The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data.
+
+Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is becuase with SVD the significant featuures (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix.
+
 ##  Summary
 
 
@@ -259,3 +266,6 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 
 
 [[3]](Chapter8.html#ftnt_ref3)    J. Collins,    [Good to Great: Why Some Companies Make the Leap and Others Don’t, HarperBusiness, 2001.](https://www.google.com/url?q=https://smile.amazon.com/Good-Great-Some-Companies-Others/dp/0066620996/ref%3Dsr_1_1?keywords%3Djim%2Bcollins%2Bgood%2Bto%2Bgreat%26qid%3D1662917929%26sprefix%3DJim%2Bcol%252Caps%252C103%26sr%3D8-1&sa=D&source=editors&ust=1681619251624332&usg=AOvVaw2Nw2smFXf9pQ0pnNupy-8E)
+
+
+[[4]](Chapter8.html#ftnt_ref4)   4. E. Hu et al, [LoRA: Low-Rank Adaptation of Large Language Models, 2021.] https://arxiv.org/pdf/2106.09685.pdf
