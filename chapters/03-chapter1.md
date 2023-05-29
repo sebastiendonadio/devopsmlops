@@ -390,5 +390,5 @@ By combining the command of the first part of this section, you will have so man
 
 In this chapter, we learned what DevOps is and we saw how operating system works and how they can help in the DevOps process. We also learned how to create scripts to automate tasks. In the next chapter, we will talk about the cloud and we will learn how to use the cloud in the context of DevOps.
 
-
+\newpage
 
