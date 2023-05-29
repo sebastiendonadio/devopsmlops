@@ -267,3 +267,5 @@ Figure 10.5: Kubernetes Master Machine components
 ## Summary
 
 In this chapter, we underlined the advantages of using micro-services. We described how pairing containers and microservices to fasten time to market for software. Then we finally scaled up by learning how to use Kubernetes. In the next chapter, we will learn how to release software.
+
+\newpage
