@@ -278,3 +278,5 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 
 
 [[5]](Chapter8.html#ftnt_ref5)   https://huggingface.co/docs/peft/task_guides/image_classification_lora 
+
+\newpage
