@@ -117,3 +117,5 @@ In this last chapter we look at a toolkit based on antifragility that helps impr
 
 
 [[6]](Chapter14.html#ftnt_ref6)       [Machine Learning CO2 Impact Calculator (mlco2.github.io)](https://www.google.com/url?q=https://mlco2.github.io/impact/%23compute&sa=D&source=editors&ust=1681619324388603&usg=AOvVaw2kv-ehmE9uydA4xddTjww8) (mlco2.github.io)
+
+\newpage
