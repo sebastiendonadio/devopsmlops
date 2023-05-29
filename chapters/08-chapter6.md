@@ -232,3 +232,5 @@ In this chapter we looked at the motivations and structure of a feature store an
 
 
 [[3]](Chapter6.html#ftnt_ref3)      [https://en.wikipedia.org/wiki/Odds_ratio](https://www.google.com/url?q=https://en.wikipedia.org/wiki/Odds_ratio&sa=D&source=editors&ust=1681619228596561&usg=AOvVaw2r6Cdnje8FI_CeIAw__39B)
+
+\newpage
