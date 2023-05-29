@@ -43,4 +43,4 @@ Chapter 13 Evaluating Fairness, explain what bias and fairness are in ML models.
 
 Chapter 14 Exploring Antifragility and ML Model Environmental Impact, comprehends antifragility and how it can be used to make your ML model robust and the environment impact of your ML model.
 
-+\newpage
+\newpage
