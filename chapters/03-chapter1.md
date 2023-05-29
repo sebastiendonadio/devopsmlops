@@ -318,6 +318,7 @@ The list above is not exhaustive but it will help you to bootstrap your work for
 
 ###  Writing your first script to automate a task
 
++\newpage
 
 Let’s assume you want to start scripting a command line. We are going to use the simplest command line: echo.
 
