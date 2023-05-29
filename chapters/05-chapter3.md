@@ -432,3 +432,5 @@ Remember that the execution, scope, length, and data of functional tests might c
 We will now conclude this chapter by summarizing what we discovered. We first learned how to talk to a machine by using a compiler. We learned how to build software by using a build system. Then we saw how to use CI software such as Jenkins to automate the process of the build by using a version control system.
 
 This chapter closed the first part of this book about DevOps, we will now start a new adventure by learning what MLOps is. The next chapter will finally introduce this topic.
+
+\newpage
