@@ -247,4 +247,4 @@ In this section, we learned how to create a computing instance in the cloud. Bec
 
 In this chapter, we learned how to create a machine in the cloud, we also learned how the cloud companies organize their regions and what a private cloud was. The next chapter will focus on how to build software and how to use libraries.
 
-+\newpage
+\newpage
