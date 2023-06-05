@@ -27,8 +27,9 @@ In academia, a lot of emphases are placed on the mechanics of algorithms and the
 <center>
 
 ![](images/images5/image9.png)
+<div align="center">
 Figure 5.1: Time on data from academia to industry
-
+  </div>
 </center>
 
 
