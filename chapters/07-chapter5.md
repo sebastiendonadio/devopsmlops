@@ -93,6 +93,7 @@ Figure 5.2: Data versioning example
 </center>
 
 
+
 The above concepts are illustrated in Figure 5.2. You start with the original data as it was acquired/collected. Post verification of the data, there are different options to validate the data such as removal of outliers, imputation to fill missing data [2], mean centering, and winsorizing, among others. There are different strategies  for data imputation starting from mean imputation to least squares to nearest neighbors. Mean centering means that you subtract the mean value of the data from each data point. This moves the data to be centered around the mean while leaving the distribution unchanged. On the other hand, winsorizing means you remove the extreme values of the data to limit the effect of possible outliers. While some operations are commutative (remove outliers, mean centering), others are dependent on the sequence. Most importantly, not all operations may be needed.
 
 
@@ -152,9 +153,9 @@ file_name": "000000332351.png", "image_id": 332351}, {"segments_info":
 <br>
 <div align="center">
 Figure 5.3: Image versioning (a) original image (b) image segmentation (c) segmentation meta-data. 
+Source:   [https://cocodataset.org](https://www.google.com/url?q=https://cocodataset.org&sa=D&source=editors&ust=1681619213251470&usg=AOvVaw1DDaWgK7iUwQFP4eedh-Ek)
 </div>
 
-Source:   [https://cocodataset.org](https://www.google.com/url?q=https://cocodataset.org&sa=D&source=editors&ust=1681619213251470&usg=AOvVaw1DDaWgK7iUwQFP4eedh-Ek)
 
 
 ##  Software Stack 2.0
@@ -184,6 +185,7 @@ Figure 5.4: Software stack 2.0 where the software parameters are determined by d
   </div>
   
 </center>
+
 
 
 
@@ -266,6 +268,7 @@ Figure 5.5: Federated learning
 
 
 
+
 The general characteristics of federated learning are -
 
 1.   Training data is not iid (independent and identically distributed)   – given that the training data is local to multiple clients.
@@ -334,12 +337,15 @@ There is a privacy vs accuracy trade-off in DP design. As shown in Figure 5.6 an
   
   <div align="center">
 Figure 5.6: DP vs accuracy during model training
+
+
+ Source:    [https://blog.tensorflow.org/2020/06/introducing-new-privacy-testing-library.html](https://www.google.com/url?q=https://blog.tensorflow.org/2020/06/introducing-new-privacy-testing-library.html&sa=D&source=editors&ust=1681619213410990&usg=AOvVaw3Jl7UvEw6omH8E8ECaeNCP)
   </div>
 </center>
 
 
- Source:    [https://blog.tensorflow.org/2020/06/introducing-new-privacy-testing-library.html](https://www.google.com/url?q=https://blog.tensorflow.org/2020/06/introducing-new-privacy-testing-library.html&sa=D&source=editors&ust=1681619213410990&usg=AOvVaw3Jl7UvEw6omH8E8ECaeNCP)
 
+    
 
 ###  Synthetic Data
 
