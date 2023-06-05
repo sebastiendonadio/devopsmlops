@@ -89,8 +89,8 @@ As mentioned above, the time spent on analyzing and trying different things with
 <div align="center">
 Figure 5.2: Data versioning example
   </div>
-
 </center>
+
 
 
 
