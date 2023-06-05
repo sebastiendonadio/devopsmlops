@@ -33,6 +33,11 @@ Figure 5.1: Time on data from academia to industry
 
 
 
+###  Data Verification and Validation
+
+Data verification and validation are different concepts, though they are often used interchangeably. Specifically, data verification ensures that the data is accurate, up-to-date while data validation ensures that the data is what it claims to be. Table 5.1 highlights the different between data verification and data validation with examples [1]. 
+
+
 ###  Exploratory Data Analysis (EDA)
 
 
@@ -76,7 +81,7 @@ Figure 5.2: Data versioning example
 </center>
 
 
-The above concepts are illustrated in Figure 5.2. You start with the original data as it was acquired/collected. Post verification of the data, there are different options to validate the data such as removal of outliers, imputation to fill missing data [1], mean centering, and winsorizing, among others. There are different strategies  for data imputation starting from mean imputation to least squares to nearest neighbors. Mean centering means that you subtract the mean value of the data from each data point. This moves the data to be centered around the mean while leaving the distribution unchanged. On the other hand, winsorizing means you remove the extreme values of the data to limit the effect of possible outliers. While some operations are commutative (remove outliers, mean centering), others are dependent on the sequence. Most importantly, not all operations may be needed.
+The above concepts are illustrated in Figure 5.2. You start with the original data as it was acquired/collected. Post verification of the data, there are different options to validate the data such as removal of outliers, imputation to fill missing data [2], mean centering, and winsorizing, among others. There are different strategies  for data imputation starting from mean imputation to least squares to nearest neighbors. Mean centering means that you subtract the mean value of the data from each data point. This moves the data to be centered around the mean while leaving the distribution unchanged. On the other hand, winsorizing means you remove the extreme values of the data to limit the effect of possible outliers. While some operations are commutative (remove outliers, mean centering), others are dependent on the sequence. Most importantly, not all operations may be needed.
 
 
 At the outset, it is not clear what will work best from the perspective of model training and model metrics. So you may have to try different options with different sequencing. Data versioning keeps this exercise manageable with data lineage that allows you to switch between different versions. Each version of the data is expected to deliver different models with different parameter values. So the data is the primary driver toward parameters, as we see in detail in the next section.
@@ -143,7 +148,7 @@ Source:   [https://cocodataset.org](https://www.google.com/url?q=https://cocodat
 ##  Software Stack 2.0
 
 
-As Andrej Karpathy put it “Gradient descent can write better code than you. I’m sorry” [2]. Quite a straightforward way to say that the data is responsible for the parameter values. We identify the algorithm to use and determine its specification (i.e. number of parameters to estimate). That generates a shell with initial parameter values. Data then populate those parameter values using optimization techniques such as gradient descent. This is referred to as software stack 2.0.
+As Andrej Karpathy put it “Gradient descent can write better code than you. I’m sorry” [3]. Quite a straightforward way to say that the data is responsible for the parameter values. We identify the algorithm to use and determine its specification (i.e. number of parameters to estimate). That generates a shell with initial parameter values. Data then populate those parameter values using optimization techniques such as gradient descent. This is referred to as software stack 2.0.
 
 
 In contrast, software stack 1.0 is deterministic coding where you have functions with parameter values written in the code and the function pre- and post-conditions are clear. In contrast, software 2.0 parameter values are dependent on optimization techniques driven by the data, so that code behavior is probabilistic as demonstrated in Figure 5.4.
@@ -170,10 +175,10 @@ Figure 5.4: Software stack 2.0 where the software parameters are determined by d
 ##  Data Governance
 
 
-Given the importance of data in software 2.0, data governance is a critical component in any enterprise’s data management strategy [3]. Data governance covers availability, validation, usability, privacy, and security of the data. Security and privacy of the data are covered in the next sections of this chapter.
+Given the importance of data in software 2.0, data governance is a critical component in any enterprise’s data management strategy [4]. Data governance covers availability, validation, usability, privacy, and security of the data. Security and privacy of the data are covered in the next sections of this chapter.
 
 
-The first part that includes data sourcing, validation, usability, and transformations is documented using Datasheet for datasets   [[4]](Chapter5.html#ftnt4) (it includes some security and privacy as well). The datasheet approach addresses the needs of both the data creators and the data consumers, enables communication between them, and promotes transparency, accountability, and reuse of data.
+The first part that includes data sourcing, validation, usability, and transformations is documented using Datasheet for datasets   [[5]](Chapter5.html#ftnt5) (it includes some security and privacy as well). The datasheet approach addresses the needs of both the data creators and the data consumers, enables communication between them, and promotes transparency, accountability, and reuse of data.
 
 
 The datasheet covers the following set of questions (summary) with information on the dataset -
@@ -205,10 +210,10 @@ As you can see, data availability, validation, and usability are covered in the 
 ##  Data Security
 
 
-Data security is the prevention of data breaches, unauthorized access to data, and information leaks. At the enterprise level, regulations such as the EU GDPR   [[5]](Chapter5.html#ftnt5)   (Global Data Protection Regulation) encourage enterprises to implement system-level security protocols such as encryption, incident management, and network integrity to protect data. Common techniques include access control using security keys, access monitoring and logging, and data encryption during transit.
+Data security is the prevention of data breaches, unauthorized access to data, and information leaks. At the enterprise level, regulations such as the EU GDPR   [[6]](Chapter5.html#ftnt6)   (Global Data Protection Regulation) encourage enterprises to implement system-level security protocols such as encryption, incident management, and network integrity to protect data. Common techniques include access control using security keys, access monitoring and logging, and data encryption during transit.
 
 
-At the individual level, in addition to enterprise security protocols, there are regulations such as the California Consumer Privacy Act   [[6]](Chapter5.html#ftnt6)  that protect personal data privacy during the usage, retention, and sharing of data. Outside of the regulatory framework, there are ways to enforce data privacy as we see in the next section.
+At the individual level, in addition to enterprise security protocols, there are regulations such as the California Consumer Privacy Act   [[7]](Chapter5.html#ftnt7)  that protect personal data privacy during the usage, retention, and sharing of data. Outside of the regulatory framework, there are ways to enforce data privacy as we see in the next section.
 
 
 ##  Data Privacy
@@ -276,7 +281,7 @@ There is a question of where to add the noise that divides DP into 2 strategies 
 1.   Local DP   - randomness added to each data point. This requires no data curator but does add more noise to the dataset.
 
 
-An example of Global DP is noise added to the output of a database query. The DB administrator is the data curator who queries the database, handles the original data, and then adds noise to the dataset. Another example of Global DP is the US 2020 census data   [[7]](Chapter5.html#ftnt7).
+An example of Global DP is noise added to the output of a database query. The DB administrator is the data curator who queries the database, handles the original data, and then adds noise to the dataset. Another example of Global DP is the US 2020 census data   [[8]](Chapter5.html#ftnt8).
 
 
 An example of local DP is a toy example of a survey where a student is asked if she/he is attending the University of Chicago. In response, each student follows this logic (that adds noise to each data value):   
@@ -291,7 +296,7 @@ So if we know how many students said “Yes” to attending the University of Ch
 ![](images/images5/image7.png)
 
 
-Pytorch implements DP in a python package called opacus   [[8]](Chapter5.html#ftnt8). Tensorflow DP uses DP-Stochastic Gradient Descent. Both clip gradients and then add random noise to them. Note that there is a privacy vs accuracy trade-off. As shown in Figure 5.6 with an increase in privacy (go down the y-axis to lower vulnerability), accuracy goes down. As with most trade-offs, there is a sweet spot after which the drop in accuracy does not justify the increase in privacy guarantees.
+Pytorch implements DP in a python package called opacus   [[9]](Chapter5.html#ftnt9). Tensorflow DP uses DP-Stochastic Gradient Descent. Both clip gradients and then add random noise to them. Note that there is a privacy vs accuracy trade-off. As shown in Figure 5.6 with an increase in privacy (go down the y-axis to lower vulnerability), accuracy goes down. As with most trade-offs, there is a sweet spot after which the drop in accuracy does not justify the increase in privacy guarantees.
 
 
 
@@ -321,7 +326,7 @@ Another way to address data privacy is to use synthetic data for model building.
 1.   Using real data - data privacy for the real data is guaranteed through techniques such as differential privacy and then that data is used to generate additional synthetic data using ML models. For example, generate synthetic credit card transaction data using a Generative Adversarial Network (GAN) and a small real dataset.
 
 
-1.   Without any real data - there are no data privacy issues as the entire dataset is generated with synthetic data developed with simulated models and using knowledge from subject matter experts. For example, generate healthcare claims data where the features or the data fields are standard and their types and values are created using Python libraries such as Faker   [[9]](Chapter5.html#ftnt9) as determined by subject experts.
+1.   Without any real data - there are no data privacy issues as the entire dataset is generated with synthetic data developed with simulated models and using knowledge from subject matter experts. For example, generate healthcare claims data where the features or the data fields are standard and their types and values are created using Python libraries such as Faker   [[10]](Chapter5.html#ftnt10) as determined by subject experts.
 
 
 ##  Summary
@@ -332,30 +337,33 @@ In this chapter, we understand the importance of data not just from data governa
 ------------------------------
 
 
-[[1]](Chapter5.html#ftnt_ref1)     [https://pypi.org/project/autoimpute/](https://www.google.com/url?q=https://pypi.org/project/autoimpute/&sa=D&source=editors&ust=1681619213413857&usg=AOvVaw2L-CXsn4MVW0yYkWGScj-C)
+[[1]](Chapter5.html#ftnt_ref1)   A. Aggarwal and A. Bose, Data Validation and Data Verification - From Dictionary to Machine Learning https://www.kdnuggets.com/2021/03/data-validation-data-verification-dictionary-machine-learning.html
 
 
-[[2]](Chapter5.html#ftnt_ref2)   Andrej Karpathy, Software 2.0,    [https://karpathy.medium.com/software-2-0-a64152b37c35](https://www.google.com/url?q=https://karpathy.medium.com/software-2-0-a64152b37c35&sa=D&source=editors&ust=1681619213413417&usg=AOvVaw2oBq5xmzvb00YK5kNsa2El)
+[[2]](Chapter5.html#ftnt_ref2)     [https://pypi.org/project/autoimpute/](https://www.google.com/url?q=https://pypi.org/project/autoimpute/&sa=D&source=editors&ust=1681619213413857&usg=AOvVaw2L-CXsn4MVW0yYkWGScj-C)
 
 
-[[3]](Chapter5.html#ftnt_ref3)      [https://www.kdnuggets.com/2020/12/mlops-why-required-what-is.html](https://www.google.com/url?q=https://www.kdnuggets.com/2020/12/mlops-why-required-what-is.html&sa=D&source=editors&ust=1681619213412084&usg=AOvVaw3lqs4w-ich0BmKWFZDmV09)
+[[3]](Chapter5.html#ftnt_ref3)   Andrej Karpathy, Software 2.0,    [https://karpathy.medium.com/software-2-0-a64152b37c35](https://www.google.com/url?q=https://karpathy.medium.com/software-2-0-a64152b37c35&sa=D&source=editors&ust=1681619213413417&usg=AOvVaw2oBq5xmzvb00YK5kNsa2El)
 
 
-[[4]](Chapter5.html#ftnt_ref4)   Timnit Gebru et al, Datasheets for Datasets,   [arXiv:1803.09010](https://www.google.com/url?q=https://arxiv.org/abs/1803.09010&sa=D&source=editors&ust=1681619213413020&usg=AOvVaw2yoFR07c1IjfVNCHS6mye-)    ,    [[1803.09010] Datasheets for Datasets (arxiv.org)](https://www.google.com/url?q=https://arxiv.org/abs/1803.09010&sa=D&source=editors&ust=1681619213413156&usg=AOvVaw31OPaylN5S_glQF-nlBDPT) [1803.09010](arxiv.org)   , Dec 2021.
+[[4]](Chapter5.html#ftnt_ref4)      [https://www.kdnuggets.com/2020/12/mlops-why-required-what-is.html](https://www.google.com/url?q=https://www.kdnuggets.com/2020/12/mlops-why-required-what-is.html&sa=D&source=editors&ust=1681619213412084&usg=AOvVaw3lqs4w-ich0BmKWFZDmV09)
 
 
-[[5]](Chapter5.html#ftnt_ref5)      [General Data Protection Regulation (GDPR) – Official Legal Text (gdpr-info.eu)](https://www.google.com/url?q=https://gdpr-info.eu/&sa=D&source=editors&ust=1681619213412496&usg=AOvVaw1JUGgMNp_YbNcmfETMmnNh) (GDPR)(gdpr-info.eu)
+[[5]](Chapter5.html#ftnt_ref5)   Timnit Gebru et al, Datasheets for Datasets,   [arXiv:1803.09010](https://www.google.com/url?q=https://arxiv.org/abs/1803.09010&sa=D&source=editors&ust=1681619213413020&usg=AOvVaw2yoFR07c1IjfVNCHS6mye-)    ,    [[1803.09010] Datasheets for Datasets (arxiv.org)](https://www.google.com/url?q=https://arxiv.org/abs/1803.09010&sa=D&source=editors&ust=1681619213413156&usg=AOvVaw31OPaylN5S_glQF-nlBDPT) [1803.09010](arxiv.org)   , Dec 2021.
 
 
-[[6]](Chapter5.html#ftnt_ref6)      [Home - California Consumer Privacy Act](https://www.google.com/url?q=https://www.californiaconsumerprivacy.com/&sa=D&source=editors&ust=1681619213412769&usg=AOvVaw0lQmdovoudHUljc-bmWrut)
+[[6]](Chapter5.html#ftnt_ref6)      [General Data Protection Regulation (GDPR) – Official Legal Text (gdpr-info.eu)](https://www.google.com/url?q=https://gdpr-info.eu/&sa=D&source=editors&ust=1681619213412496&usg=AOvVaw1JUGgMNp_YbNcmfETMmnNh) (GDPR)(gdpr-info.eu)
 
 
-[[7]](Chapter5.html#ftnt_ref7)      [https://dataskeptic.com/blog/episodes/2020/differential-privacy-at-the-us-census](https://www.google.com/url?q=https://dataskeptic.com/blog/episodes/2020/differential-privacy-at-the-us-census&sa=D&source=editors&ust=1681619213413642&usg=AOvVaw0dh2EvBBE0EMObp105Ffsd)
+[[7]](Chapter5.html#ftnt_ref7)      [Home - California Consumer Privacy Act](https://www.google.com/url?q=https://www.californiaconsumerprivacy.com/&sa=D&source=editors&ust=1681619213412769&usg=AOvVaw0lQmdovoudHUljc-bmWrut)
 
 
-[[8]](Chapter5.html#ftnt_ref8)      [https://github.com/pytorch/opacus](https://www.google.com/url?q=https://github.com/pytorch/opacus&sa=D&source=editors&ust=1681619213414066&usg=AOvVaw1bFaJxvc_TNQfsfEGIdwqh)
+[[8]](Chapter5.html#ftnt_ref8)      [https://dataskeptic.com/blog/episodes/2020/differential-privacy-at-the-us-census](https://www.google.com/url?q=https://dataskeptic.com/blog/episodes/2020/differential-privacy-at-the-us-census&sa=D&source=editors&ust=1681619213413642&usg=AOvVaw0dh2EvBBE0EMObp105Ffsd)
 
 
-[[9]](Chapter5.html#ftnt_ref9)     [https://faker.readthedocs.io/en/master/](https://www.google.com/url?q=https://faker.readthedocs.io/en/master/&sa=D&source=editors&ust=1681619213414280&usg=AOvVaw2kd2RNkgvh1ooPmEXWwdMS)
+[[9]](Chapter5.html#ftnt_ref9)      [https://github.com/pytorch/opacus](https://www.google.com/url?q=https://github.com/pytorch/opacus&sa=D&source=editors&ust=1681619213414066&usg=AOvVaw1bFaJxvc_TNQfsfEGIdwqh)
+
+
+[[10]](Chapter5.html#ftnt_ref10)     [https://faker.readthedocs.io/en/master/](https://www.google.com/url?q=https://faker.readthedocs.io/en/master/&sa=D&source=editors&ust=1681619213414280&usg=AOvVaw2kd2RNkgvh1ooPmEXWwdMS)
 
 \newpage
