@@ -86,7 +86,9 @@ As mentioned above, the time spent on analyzing and trying different things with
 <center>
 
 ![](images/images5/image10.png)
+<div align="center">
 Figure 5.2: Data versioning example
+  </div>
 
 </center>
 
@@ -176,8 +178,11 @@ In contrast, software stack 1.0 is deterministic coding where you have functions
 <center>
 
 ![](images/images5/image11.png)
+  
+  <div align="center">
 Figure 5.4: Software stack 2.0 where the software parameters are determined by data
-
+  </div>
+  
 </center>
 
 
@@ -252,8 +257,11 @@ In this methodology instead of sending all the data from different locations to 
 <center>
 
 ![](images/images5/image14.png)
+  
+  <div align="center">
 Figure 5.5: Federated learning
-
+  </div>
+  
 </center>
 
 
@@ -323,8 +331,10 @@ There is a privacy vs accuracy trade-off in DP design. As shown in Figure 5.6 an
 <center>
 
 ![](images/images5/image13.png)
+  
+  <div align="center">
 Figure 5.6: DP vs accuracy during model training
-
+  </div>
 </center>
 
 
