@@ -15,13 +15,13 @@ In the first section, we introduce the motivation of MLOps and its similarity to
 ##  Motivation
 
 
-The jury is out on how many data science projects do not make it to production, with numbers hovering in the high 80s   [[1]](Chapter4.html#ftnt1)    . In whatever way you look at it, this implies a low percentage of production operationalization of artificial intelligence (AI)/machine learning (ML) models. That is in contrast to predictions and societal hope that AI will improve our lives. So why this low percentage? Different reasons contribute to this such as inadequate data management, siloed enterprise organizations, not understanding ML technical debt, among others. Machine learning operations (MLOps) principles help manage these hurdles for ML model operationalization in production.
+The jury is out on how many data science projects do not make it to production, with numbers hovering in the high 80s   [[1]](Chapter4.html#ftnt1)    . Anyway you look at it, this implies a low percentage of production operationalization of artificial intelligence (AI)/machine learning (ML) models. That is in contrast to predictions and societal hope that AI will improve our lives. So why this low percentage? Different reasons contribute to this such as inadequate data management, siloed enterprise organizations, not understanding ML technical debt, among others. Machine learning operations (MLOps) principles help manage these hurdles for ML model operationalization in production.
 
 
 AI/ML model operationalization is similar but not the same as software deployment. Similar because you are writing and managing model code. This is where DevOps principles that have proven to manage hurdles in software production deployment are useful. Concepts such as scripting, task automation and CI/CD outlined in the previous chapters are cornerstones in MLOps.
 
 
-Different because ML model is not just code but has an important data dimension that determines the parameter values. This added complexity has implications in terms of data tracking and how for the same (Python or R or C++) algorithm code you can have different model parameters. MLOps manages this data complexity and we go into more details on this in the next chapter.
+Different because ML model is not just code but has an important data dimension that determines the parameter values. This added complexity has implications in terms of data tracking and how for the same (Python / R / C++ / Java / Julia / any other programming language) algorithm code you can have different model parameters. MLOps manages this data complexity and we go into more details on this in the next chapter.
 
 
 ##  ML Operationalization Complexities
@@ -43,13 +43,13 @@ Figure 4.1: Complexities in machine learning (ML) model operationalization
 
 </center>
 
-##  ML Lifecycle
+##  ML Lifecycle to MLOps Platform
 
 
-Using the above complexities as guides, the desiderata of a MLOps platform are:
+Using the above complexities as guides, the desiderata of a MLOps platform based on ML lifecycle are:
 
-1.   Integration with data infrastructure - enable easy data tracking and management
-1.   Versioning - enforce that any changes to the data (for example, outlier removal, imputation) should be a version change of the data.
+1.   Integration with data infrastructure - enable easy data tracking and management.
+1.   Versioning - enforce that any changes to the data (for example, outlier removal, imputation) be a version change of the data.
 2.   Location independence (cloud, on-premise, hybrid) - allow seamless access to data irrespective of whether it is on the cloud (for example, Amazon S3, Azure blob), on-premise storage or a hybrid combination of both.
 3.   Governance - govern all data validation, transformations and preparation such that sensitive fields (for example, gender, race, ethnicity) are not used for predictive modeling, and track all ML model releases for audit and reproducibility.
 
@@ -112,10 +112,10 @@ The components that comprise this phase are:
 1.   Connect to Data Version - data plays an important role in ML model building, therefore using the right version of the data is important.
 
 
-1.   EDA - perform exploratory data analysis to understand the data version.
-
-
 1.   Verify and Validate Data - critical to verify that the data is as expected and then validate the data.
+
+
+1.   EDA - perform exploratory data analysis to understand the data version.
 
 
 1.   Feature Engineering - once the data is verified and validated build features specific to the business problem.
@@ -157,7 +157,7 @@ The components that comprise this phase are:
 1.   Design Pipeline - once an algorithm is determined, put together the pipeline that will use the data and the algorithm.
 
 
-1.   ML Experiments - post design of the pipeline, run the pipeline for different experiments with different data versions and algorithms.
+1.   ML Experiments - post design of the pipeline, run experiments using the pipeline for different data versions and algorithms.
 
 
 1.   Hyperparameter Tuning - part of the ML experiments include trying different hyperparameters for best model performance.
@@ -197,7 +197,7 @@ The components that comprise this phase are -
 1.   Deploy and Run Inference Service - once the production environment is ready, deploy and run the model.
 
 
-1.   Production Testing - run any tests that are necessary for A/B testing or Multi-Armed Bandit Testing in production.
+1.   Production Testing - run any tests that are necessary for A/B testing or Multi-Armed Bandit testing in production.
 
 
 1.   Performance Visualization and Model Monitoring - insight into the performance of the deployed ML model with dashboard visualization and setup ML model monitoring to detect performance deterioration.
@@ -229,7 +229,7 @@ Figure 4.6: Agile ML Data Management
 Likewise, each step in the model management phase is also iterative as you explore and discover different combinations of algorithms, hyperparameters and data features during model building. In the last step, the winning model is documented using a model card. We go into these details in later chapters.
 
 
-In the deployment management phase, first you design how you plan to run your inference service and then deploy. After post deployment feedback (such as production machine workload), you may go back and redesign the inference service. Then depending on the outcome of production deployment tests, you may again redesign (and maybe redeploy) the inference service. And based on the performance and model monitoring, there may be redesign and/or production redeployment.
+In the deployment management phase, first you design how you plan to run your inference service and then deploy. Post deployment feedback (such as production machine workload), you may go back and redesign the inference service. Then depending on the outcome of production deployment tests, you may again redesign (and maybe redeploy) the inference service. And based on the performance and model monitoring, there may be redesign and/or production redeployment.
 
 
 ##  What is AIOps
