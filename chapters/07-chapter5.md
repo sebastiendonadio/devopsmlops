@@ -8,7 +8,7 @@ In this fifth chapter, we understand the importance of data in ML model developm
 -   Understand how to ensure data privacy
 
 
-We start this chapter with the importance of data and versioning it.
+We start this chapter with the importance of data and data versioning.
 
 
 ##  Time Spent on Data
@@ -56,7 +56,7 @@ As explained in the last chapter, a good start with data analysis is to check fo
 ###  Feature Engineering
 
 
-In contrast to EDA, feature engineering is very much use-case-dependent. This is where you build custom features that are relevant to the ML model, which in turn is dependent on the use case. For example, if you are building an ML model to predict the winner of a tennis match, then features such as double-fault, and aces served, are relevant. But they are not if you are building an ML model for credit card fraud detection. Instead, fraud-relevant features such as the number of transactions in the last three days, and the location of the transactions, are important. We outline different types of automated feature engineering in Chapter 6. However, for either use case, EDA is valid.
+In contrast to EDA, feature engineering is very much use-case-dependent. This is where you build custom features that are relevant to the ML model, which in turn is dependent on the use case. For example, if you are building a ML model to predict the winner of a tennis match, then features such as double-fault, and aces served, are relevant. But they are not if you are building a ML model for credit card fraud detection. Instead, fraud-relevant features such as the number of transactions in the last three days, and the location of the transactions, are important. We outline different types of automated feature engineering in Chapter 6. However, for either use case, EDA is valid.
 
 
 In conclusion, understanding the data details is very important to extract the most from the data. You should expect to spend the majority of an ML project time exploring, analyzing, and transforming the data. Given the time spent on the data, there is a requirement (just like code) to be able to try out different data variations and roll back to an earlier version, capabilities that are provided by a versioning system. This underscores the need for data versioning.
@@ -210,7 +210,7 @@ The datasheet covers the following set of questions (summary) with information o
 1.   Distribution   – how to distribute and use the dataset from IP/legalities perspective? When will the data be distributed?
 
 
-1.   M  aintenance   – who supports the dataset and how is it maintained? When will the data be updated?
+1.   Maintenance   – who supports the dataset and how is it maintained? When will the data be updated?
 
 
 As you can see, data availability, validation, and usability are covered in the datasheet. For details on any of the questions above or for example use cases of the datasheet, please refer to the paper. Now that the data is ready to be used, you need to verify that there are no privacy violations and that it is stored securely. In the next section, we discuss data security.
@@ -279,10 +279,10 @@ The other methodology for data privacy that is quite popular is different privac
 In the previous section we see how privacy is preserved by not sharing the data but keeping it local and sharing only model parameter value. However, this is not possible for many ML projects where data is sourced from different locations and data sharing is imperative. Differential privacy (DP) is a mathematical definition of privacy that has shown the most promise in research to preserve privacy during data sharing. It balances learning nothing about an individual (from the data) and learning useful information about a population. It is achieved by adding (some) noise or randomness to data transformations such that conclusions made from the data are independent of any specific data point.
 
 
-The mathematical definition of DP is as follows - assume 2 datasets   ![](images/images5/image1.png)  and   ![](images/images5/image2.png)   that differ by a single data point. A   ![](images/images5/image3.png)  DP is provided when the maximum difference in the outcome of the same transformations (linear or nonlinear) on    ![](images/images5/image1.png)  and   ![](images/images5/image2.png)  are bounded (less than or equal to)   ![](images/images5/image4.png)  .   ![](images/images5/image5.png)  is the strength of privacy guarantee with a lower value indicating higher privacy guarantee.   ![](images/images5/image6.png)  is the probability that   $\epsilon$ does not hold and is generally set to be inverse of dataset size, rounded to the nearest order of magnitude.
+The mathematical definition of DP is as follows - assume 2 datasets   ![](images/images5/image1.png)  and   ![](images/images5/image2.png)   that differ by a single data point. A   ![](images/images5/image3.png)  DP is provided when the maximum difference in the outcome of the same transformations (linear or nonlinear) on    ![](images/images5/image1.png)  and   ![](images/images5/image2.png)  are bounded (less than or equal to)   ![](images/images5/image4.png)  .   ![](images/images5/image5.png)  is the strength of privacy guarantee with a lower value indicating higher privacy guarantee.   ![](images/images5/image6.png)  is the probability that   ![](images/images5/image5.png) does not hold and is generally set to be inverse of dataset size, rounded to the nearest order of magnitude.
 
 
-There is a question of where to add the noise that divides DP into 2 strategies -
+There is a question of where to add the noise (randomness) that divides DP into 2 strategies -
 
 1.   Global DP   - randomness added to the data transformation for the entire dataset. This adds less noise to the dataset but requires a trusted data curator to handle the original dataset and transform all the data.
 
@@ -305,7 +305,10 @@ So if we know how many students said “Yes” to attending the University of Ch
 ![](images/images5/image7.png)
 
 
-Pytorch implements DP in a python package called opacus   [[9]](Chapter5.html#ftnt9). Tensorflow DP uses DP-Stochastic Gradient Descent. Both clip gradients and then add random noise to them. Note that there is a privacy vs accuracy trade-off. As shown in Figure 5.6 with an increase in privacy (go down the y-axis to lower vulnerability), accuracy goes down. As with most trade-offs, there is a sweet spot after which the drop in accuracy does not justify the increase in privacy guarantees.
+Pytorch implements DP in a python package called opacus   [[9]](Chapter5.html#ftnt9). Tensorflow DP uses DP-Stochastic Gradient Descent. Both clip gradients and then add random noise to them. 
+
+
+There is a privacy vs accuracy trade-off in DP design. As shown in Figure 5.6 an increase in privacy (go down the y-axis to lower vulnerability) causes a decrease in accuracy. As with most trade-offs, there is a sweet spot after which the drop in accuracy does not justify the increase in privacy guarantees.
 
 
 
@@ -335,7 +338,7 @@ Another way to address data privacy is to use synthetic data for model building.
 1.   Using real data - data privacy for the real data is guaranteed through techniques such as differential privacy and then that data is used to generate additional synthetic data using ML models. For example, generate synthetic credit card transaction data using a Generative Adversarial Network (GAN) and a small real dataset.
 
 
-1.   Without any real data - there are no data privacy issues as the entire dataset is generated with synthetic data developed with simulated models and using knowledge from subject matter experts. For example, generate healthcare claims data where the features or the data fields are standard and their types and values are created using Python libraries such as Faker   [[10]](Chapter5.html#ftnt10) as determined by subject experts.
+1.   Without any real data - there are no data privacy issues as the entire dataset is generated with synthetic data developed with simulated models and using knowledge from subject matter experts. For example, generate healthcare claims data where the features or the data fields and their data types are standardized and the data values are created using Python libraries such as Faker   [[10]](Chapter5.html#ftnt10). The values are validated by subject experts.
 
 
 ##  Summary
