@@ -23,10 +23,10 @@ The iterative nature of ML model building was outlined in the last chapter where
 1.   Run disciplined experiments   - this is where you have a platform to run experiments where you build a ML model using different data versions (Figure 5.2) and different algorithm and hyperparameter versions (Figure 7.1 and Figure 7.2) and compare the metrics.
 
 
-1.   Learn Meaningful Insights   - use the feedback from the metrics comparison to learn and derive insights such as imputation is not important but outlier removal is and uses these insights to generate the next verifiable hypotheses (for example to use version 2.1.1 in Figure 5.2).
+1.   Learn Meaningful Insights   - use the feedback from the metrics comparison to learn and derive insights such as imputation is not important but outlier removal is and use these insights to generate the next verifiable hypotheses (for example to use version 2.1.1 in Figure 5.2).
 
 
-The ability to run the above experimentation wheel is enabled by ML pipelines. And the knobs to change for a ML experiment span data versioning, hyperparameters versioning, and algorithms/pipeline versioning   [[2]](Chapter8.html#ftnt2) (Figure 8.1). For example, you may want to experiment with the same data version in the same ML pipeline but with different hyperparameters. Another experiment would be using the same data version with the same algorithm hyperparameter but different pipeline configurations such as different data mappings or mash-ups with external data. A third configuration may use the same data version with different algorithms. As outlined in Chapter 4 on the desiderata of an MLOps platform, team collaboration with different members running different experiments (some of which will fail fantastically like M2 and not all successful ones will perform like M1) is important to find that winning model combination.
+The ability to run the above experimentation wheel is enabled by ML pipelines. And the knobs to change for a ML experiment span data versioning, hyperparameters versioning, and algorithms/pipeline versioning   [[2]](Chapter8.html#ftnt2) (Figure 8.1). For example, you may want to experiment with the same data version in the same ML pipeline but with different hyperparameters. Another experiment would be using the same data version with the same algorithm hyperparameter but different pipeline configurations such as different data mappings or mash-ups with external data. A third configuration may use the same data version with different algorithms. As outlined in Chapter 4 on the desiderata of an MLOps platform, team collaboration with different members running different experiments (some of which fail fantastically like M2 and not all successful ones perform like M1) is important to find that winning model combination.
 
 
 <!-- <p align="center">
@@ -49,7 +49,7 @@ The ability to run the above experimentation wheel is enabled by ML pipelines. A
 ##  ML Pipeline
 
 
-A ML pipeline is a workflow to run experiments outlined in the previous section starting with data ingestion and ending with model delivery.   It includes all the steps necessary to train a model from DataOps and ModelOps in Figure 4.2 such as data validation, data preprocessing, data mappings (including any external data mash-ups), model training, model evaluation, and model delivery (ready for production deployment). Note that this includes defining an ML pipeline for AutoML discussed in Chapter 7. A workflow example is given in Figure 8.2 -
+A ML pipeline is a workflow to run experiments outlined in the previous section starting with data ingestion and ending with model delivery.   It includes all the steps necessary to train a model from DataOps and ModelOps in Figure 4.2 such as data validation, data preprocessing, data mappings (including any external data mash-ups), model training, model evaluation, and model delivery (ready for production deployment). Note that this includes defining a ML pipeline for AutoML discussed in Chapter 7. A workflow example is given in Figure 8.2 -
 
 1.   Use a hypothesis to connect to a specific data version.
 
@@ -90,7 +90,7 @@ A ML pipeline is a workflow to run experiments outlined in the previous section 
 </center>
 
 
-Pipelines need orchestration so that the components are executed in the correct order. In the Hidden Technical Debt in Machine Learning paper, the authors found that one of the reasons for the failure of ML projects is the brittle and often not-portable scripts that glue the different components of an ML workflow. This is mitigated by ML Pipelines that abstract the glue code and manage the orchestration in a standardized way.
+Pipelines need orchestration so that the components are executed in the correct order. In the Hidden Technical Debt in Machine Learning paper, the authors found that one of the reasons for the failure of ML projects is the brittle and often not-portable scripts that glue the different components of a ML workflow. This is mitigated by ML Pipelines that abstract the glue code and manage the orchestration in a standardized way.
 
 Pipeline tools manage the flow of tasks through a directed graph representation of the task dependencies (Figure 8.3). Directed graphs ensure that task dependencies are honored. They are acyclic (no cycles) so that the orchestration is not going back to a previously completed task, and are directed such that the execution flows in one direction.
 
@@ -158,7 +158,7 @@ So far in this chapter we have discussed training ML pipelines where you run dif
 If there is a difference in the data sent to the model then your pipelines have a Training-Serving skew. Be careful to avoid this skew. Otherwise you violate one of the basic assumptions in machine learning that the training and inference data are from the same data distribution.
 
 
-Note that training and inference pipelines are complementary. The training pipeline's primary purpose is to evaluate models and deliver the one with the best metrics. The inference pipeline’s primary purpose is to generate results from the model and monitor the model for any drift (more on this in Chapter 12). More on this result generation and feedback for the ML model in the next section.
+Note that training and inference pipelines are complementary. The training pipeline's primary purpose is to evaluate models and deliver the one with the best metrics. The inference pipeline’s primary purpose is to generate results from the model and monitor the model for any drift (more on this in Chapter 12). More on this result generation in the next section.
 
 
 <!-- <p align="center">
@@ -192,12 +192,12 @@ There are 2 types of data feedback in ML models -
 1.   Explicit feedback   - a user rates a movie in an online streaming service.
 
 
-The motivation behind data feedback is to institute a cycle of model retraining and data collection also known as data flywheel (Figure 8.5). The flywheel concept is from Jim Collins   [[3]](Chapter8.html#ftnt3) and it depicts a cycle that is enabled by all the different components and leads to improvement.
+The motivation behind data feedback is to institute a cycle of model retraining and data collection also known as data flywheel (Figure 8.5). The flywheel concept is from Jim Collins   [[3]](Chapter8.html#ftnt3) and it depicts a cycle that is enabled by all the different components and leads to (continuous) improvement.
 
 
-From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a specific time heuristic such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implied) feedback.
+From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a specific time heuristic such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implicit) feedback.
 
-In the next section, we outline three popular open-source pipelines for use with your ML code.
+In the next section, we outline three popular open-source pipelines to use with your ML code.
 
 
 <!-- <p align="center">
@@ -220,7 +220,7 @@ In the next section, we outline three popular open-source pipelines for use with
 ###  Open Source Pipeline Implementations
 
 
-There are multiple open-source pipeline implementations and we list 3 of them in this chapter. Note that most of these implementations use YAML files to define the pipeline components and dependencies (including external library versions). An example of such a YAML file pipeline definition is in Figure 8.6.
+There are multiple open-source pipeline implementations and we list 3 of them in this chapter. Note that most of these implementations use YAML (Yet Another Markup Language) files to define the pipeline components and dependencies (including external library versions). An example of such a YAML file pipeline definition is in Figure 8.6.
 
 
 ```yaml
@@ -260,7 +260,7 @@ Research has demonstrated that the lower dimension matrix performs comparatively
 ##  Summary
 
 
-In this chapter we looked at the motivations behind ML pipelines and the advantages of using them both from technical and business perspectives. We also outlined continuous training that extends the DevOps CI/CD methodology to CT using a data flywheel. Lastly, we present 3 popular open source implementations for ML pipelines. In the next chapter, we look at model interpretability and explainability.
+In this chapter we looked at the motivations behind ML pipelines and the advantages of using them both from technical and business perspectives. We also outlined continuous training that extends the DevOps CI/CD methodology to CI/CD/CT using a data flywheel. Lastly, we present 3 popular open source implementations for ML pipelines. In the next chapter, we look at model interpretability and explainability.
 
 ------------------------------
 
