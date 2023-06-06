@@ -187,7 +187,8 @@ As shown in Figure 7.5, there is a semi-automated ML between the AutoML and manu
 <center>
 
 ![](images/images7/image6.png)
-Figure 7.5: ML model development from manual to AutoML
+
+  Figure 7.5: ML model development from manual to AutoML
 
 </center>
 
@@ -197,14 +198,17 @@ Closely associated with the concepts of AutoML, semi-auto ML and manual ML is ho
 
 
 <ins> Full-code </ins>
+
 When you write code for an ML model (for example using libraries such as scikit-learn, TensorFlow, or PyTorch). Associated with manual ML.
 
 
 <ins> No-code </ins>
+
 When you use graphical tools such as drag-and-drop components on a workspace and connect them with arrows to build a system without writing any code. Associated with semi-auto ML (no fine-tuning, just use the pre-built ML model as-is) and AutoML (use the automatically built ML model as-is).
 
 
 <ins> Low-code </ins>
+
 When you use similar graphical tools but may have to update settings in a configuration file or update parameters in a code file or write some basic scripts. Also associated with both semi-auto ML (update scripts to fine-tune and train the pre-built ML model with your dataset) and AutoML (update scripts to change hyperparameters, if allowed by the AutoML framework).
 
 
