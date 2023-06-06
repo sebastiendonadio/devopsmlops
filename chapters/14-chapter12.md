@@ -92,7 +92,8 @@ The production and training data may be different because of the following reaso
 <center>
 
 ![](images/images12/image5.png)
-Figure 12.3: Non-stationary feature
+
+  Figure 12.3: Non-stationary feature
 
 </center>
 
@@ -118,7 +119,8 @@ As we explained earlier, covariate shift happens when   p(X)   in Figure 12.1 ch
 <center>
 
 ![](images/images12/image1.png)
-Figure 12.4: Covariate shift with different distribution in training (before) and production (after)
+
+  Figure 12.4: Covariate shift with different distribution in training (before) and production (after)
 
 </center>
 
@@ -165,7 +167,8 @@ When the distribution of the output/target variable   P(y)   (Figure 12.1) chang
 <center>
 
 ![](images/images12/image2.png)
-Figure 12.5: Prior Probability Shift - change in output variable distribution
+
+  Figure 12.5: Prior Probability Shift - change in output variable distribution
 
 </center>
 
@@ -234,7 +237,8 @@ Table 12.1: Regression and Classification Model Evaluation Metrics.
 <center>
 
 ![](images/images12/image4.png)
-Figure 12.6: Model Performance monitoring using bounds determined at training
+
+  Figure 12.6: Model Performance monitoring using bounds determined at training
 
 </center>
 
