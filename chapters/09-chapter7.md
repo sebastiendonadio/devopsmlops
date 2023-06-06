@@ -66,7 +66,8 @@ Table 7.1: Algorithms and corresponding hyperparameters.
 <center>
 
 ![](images/images7/image2.png)
-Figure 7.2: Versions with the same algorithm and different hyperparameters
+
+  Figure 7.2: Versions with the same algorithm and different hyperparameters
 
 </center>
 
