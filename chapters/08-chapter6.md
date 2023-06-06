@@ -134,12 +134,11 @@ Aggregations and transformations are two popular feature engineering that can be
 Let's review the data type with their transformation and aggregation techniques:
 
 
-(a) Continuous data type
+#### (a) Continuous data type
   
   Transformation
 
 Univariate: absolute value, imputation, mean center, winsorize, smoothing/averaging, binning, change scale of data using for example log or inverse or power   [[2]](Chapter6.html#ftnt2)  transformations. 
-
 <br> Bivariate: the difference between 2 variables, odds-ratio   [[3]](Chapter6.html#ftnt3)
 
 Aggregation
@@ -149,7 +148,7 @@ Mean, median, standard deviation, variance.
 
 
 
-(b) Categorical unordered aka nominal data type
+#### (b) Categorical unordered aka nominal data type
   
   Transformation
 
@@ -164,7 +163,7 @@ Dummy encoding: assign numbers to the levels and ensure that if there are   K   
   Count/frequency of a specific level, the number of times a level is hit in a given period.
  
  
-(c) Categorical ordered aka ordinal data type
+#### (c) Categorical ordered aka ordinal data type
 
 Transformation
 
