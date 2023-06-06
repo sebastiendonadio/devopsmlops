@@ -29,7 +29,8 @@ You want to version ML algorithms for repeatability and governance, similar reas
 <center>
 
 ![](images/images7/image1.png)
-Figure 7.1: Versions with different algorithms
+
+  Figure 7.1: Versions with different algorithms
 
 </center>
 
