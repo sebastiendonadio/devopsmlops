@@ -72,7 +72,8 @@ The production and training data may be different because of the following reaso
 <center>
 
 ![](images/images12/image3.png)
-Figure 12.2: Biased training sample distribution different from the test sample
+
+  Figure 12.2: Biased training sample distribution different from the test sample
 
 </center>
 
