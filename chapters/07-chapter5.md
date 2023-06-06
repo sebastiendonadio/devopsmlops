@@ -36,17 +36,16 @@ Figure 5.1: Time on data from academia to industry
 
 ###  Data Verification and Validation
 
-Data verification and validation are different concepts, though they are often used interchangeably. Specifically, data verification ensures that the data is accurate, up-to-date while data validation ensures that the data is what it claims to be. Table 5.1 highlights the different between data verification and data validation with examples [1]. 
+Data verification and validation are different concepts, though they are often used interchangeably. Specifically, data verification ensures that the data is accurate, up-to-date while data validation ensures that the data is what it claims to be. Below we highlight the different between data verification and data validation with examples [1]. 
+
+<ins> Data Verification </ins>
+(a) Check data against source to verify correctness, e.g. checking the age against a valid document.
+(b) Verify that email and password are as expected in system.
 
 
-|Data Verification | Data Validation | 
-|----------|-----------------|
-| Check data against source to verify correctness, e.g. checking the age against a valid document | Check if a data value is within a range, e.g. age should not be negative |
-| Verify that email and password are as expected in system | Validate that the email syntax contains '@' |
-<p align="center">
-Table 5.1: Algorithms and corresponding hyperparameters.
-</p>
-
+<ins> Data Validation </ins>
+(a) Check if a data value is within a range, e.g. age should not be negative.
+(b) Validate that the email syntax contains '@'.
 
 ###  Exploratory Data Analysis (EDA)
 
