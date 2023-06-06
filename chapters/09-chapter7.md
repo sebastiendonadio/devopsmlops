@@ -72,19 +72,22 @@ Figure 7.2: Versions with the same algorithm and different hyperparameters
 
 
 
-As demonstrated, algorithm versioning helps you keep track of all the moving parts in ML model building. Note that these are just sample algorithms that you can use for the retail sales prediction example. There are multiple other algorithm options including ensembling the aforementioned algorithms. Determining what is the best algorithm to use necessitates building models with each and evaluating the model metrics. Sometimes the challenge may be that you cannot train a model continuously from start to finish for whatever reason be it time, hardware availability, data, or cost. At the same time, you do not want to lose the training you have done till then. This is where model checkpointing comes in handy.
+As demonstrated, algorithm versioning helps you keep track of all the moving parts in ML model building. Note that these are just sample algorithms that you can use for the retail sales prediction example. There are multiple other algorithm options including ensembling the aforementioned algorithms. Determining what is the best algorithm to use necessitates building models with each and evaluating the model metrics. 
+
+
+Sometimes the challenge may be that you cannot train a model continuously from start to finish for whatever reason be it time, hardware availability, data, or cost. At the same time, you do not want to lose the training you have done till then. This is where model checkpointing comes in handy.
 
 
 ###  Model Checkpointing
 
 
-As outlined above, a machine learning model training may be paused for many reasons, some decided by you such as suspend now and pick it up later to free up computation resources, others not decided by you such as out-of-memory or execution crash. Irrespective of the reason, you would want to restart the training from the last completed point as opposed to restarting from the beginning. This is what model checkpointing allows as demonstrated in Figure 7.3. Checkpoints A, B and C save the state of a model during training and validation. Checkpoints B and C pickup from the saved model state in checkpoint A and B, respectively, with each region indicated differently in the loss curves.
+As outlined above, a machine learning model training may be paused for many reasons, some decided by you such as suspend now and pick it up later to free up computation resources, others not decided by you such as out-of-memory or execution crash. Irrespective of the reason, you would want to restart the training from the last completed point as opposed to restarting from the beginning. This is what model checkpointing allows as demonstrated in Figure 7.3. Checkpoints A, B and C save the state of a model during training and validation.
 
 
 Model checkpointing is similar to model save but with a subtle difference. In the former, you have the model source code so you are only saving the parameter values. In the latter, you are serializing the complete model - parameter values and model architecture. ML libraries such as TensorFlow (save_weights()) [[2]](Chapter7.html#ftnt2)     and PyTorch (save())  [[3]](Chapter7.html#ftnt3)     have APIs for model checkpointing.
 
 
-Armed with algorithm versioning, hyperparameter versioning and model checkpointing, now you are ready to make a serious impact on a business project. However, manually determining which combination of the above gives the best result (as evaluated by a business metric) is cumbersome. Automated machine learning is an automated methodology that does this automatically. In other words, it builds models with multiple combinations of different algorithms and different hyperparameters and ranks them based on a user-defined model evaluation metric.
+Armed with algorithm versioning, hyperparameter versioning and model checkpointing, now you are ready to make a serious impact on a business project. However, manually determining which combination of the above gives the best result (as evaluated by a business metric) is cumbersome. Automated machine learning is a methodology that does this automatically. In other words, it builds models with multiple combinations of different algorithms and different hyperparameters and ranks them based on a user-defined model evaluation metric.
 
 
 <!-- <p align="center">
@@ -114,12 +117,12 @@ AutoML is automated ML model development spanning data ingestion, parameter extr
 ###  AutoML Usage and Benefits
 
 
-AutoML are used in the industry in a variety of ways -
+AutoML is used in the industry in a variety of ways -
 
--   Business and other analysts use AutoML to develop models without going into the algorithm or hyperparameter selection details - these users are sometimes referred to as citizen data scientists. The benefit of AutoML is democratizing ML model usage. Not all employees in an enterprise need an intensive math and algorithm code development background. AutoML empowers citizen data scientists who may not have the intensive ML data science background to impact enterprise productivity using ML models with some upskilling.
+-   Business and other analysts use AutoML to develop models without going into the algorithm or hyperparameter selection details - these users are sometimes referred to as citizen data scientists. The benefit of AutoML is democratizing ML model usage. Not all employees in an enterprise need intensive math and algorithm code development background. AutoML empowers citizen data scientists to impact enterprise productivity using ML models with some upskilling.
 
 
--   Experienced data scientists use AutoML to narrow down the algorithm and hyperparameter possibilities, including neural network architectures. And then develop or fine-tune the models themselves. The benefit is that trained data scientists with math and algorithm backgrounds use AutoML as an efficiency tool. In the next section we discuss using AutoML to search neural network architectures.
+-   Experienced data scientists use AutoML to narrow down the algorithm and hyperparameter possibilities, including neural network architectures. And then develop or fine-tune the models themselves. The benefit is that trained data scientists with math and algorithm code development background use AutoML as an efficiency tool. In the next section we discuss using AutoML to search neural network architectures.
 
 
 
@@ -142,10 +145,10 @@ Figure 7.4: Automated Machine Learning (AutoML) steps
 ###  AutoML for Neural Architecture Search (NAS)
 
 
-Neural Architecture Search is where you use AutoML to search for the best (as defined by a loss function) neural network architecture from a set of possibilities. For example, Google implements NAS using reinforcement learning or evolutionary algorithms (such as genetic algorithms) to search the vast space of possible neural networks to design neural network architectures.
+Neural Architecture Search is where you use AutoML to search for the best (as defined by a loss function) neural network architecture from a set of possibilities. For example, Google implements NAS to design neural networks using reinforcement learning or evolutionary algorithms (such as genetic algorithms) to search the space of possible neural network architectures.
 
 
-A restriction of AutoML including NAS is that its search space comprises predefined algorithms and hyperparameters that may be subject to the designer’s bias. To remove this restriction, Google defined a concept called AutoML-Zero   [[4]](Chapter7.html#ftnt4) [4]    that uses evolutionary algorithms to start from empty programs and use basic math operations as building blocks to construct ML code. Next, we list popular open-source AutoML libraries.
+A restriction of AutoML including NAS is that its search space comprises predefined algorithms and hyperparameters that may be subject to the designer’s bias. To remove this restriction, Google defined a concept called AutoML-Zero   [[4]](Chapter7.html#ftnt4) that uses evolutionary algorithms to start from empty programs and use basic math operations as building blocks to construct ML code. Next, we list popular open-source AutoML libraries.
 
 
 ###  AutoML Open-source Libraries
@@ -168,7 +171,7 @@ Below are examples of open-source automl libraries -
 Using AutoML reveals an interesting spectrum in ML model development. At one end of the spectrum is automated ML development as defined in this chapter. At the other end of the spectrum is manual ML development where a data scientist works with the data and algorithms and trains them (maybe with model checkpointing) using open-source libraries such as scikit-learn, TensorFlow, PyTorch, among others. Additionally, there is an interesting methodology in the middle that we discuss next.
 
 
-As shown in Figure 7.5, there is a semi-automated ML between the AutoML and manual ML model development where you have off-the-shelf pre-trained models available for use. Such pre-trained models target domain-specific use cases. Their usage is expected in enterprises with data science teams who want accelerators to solve a business problem. These enterprises do not have the luxury of starting from scratch due to the competitive landscape but have data scientists who can improve and fine-tune the pre-trained models. Let us explain using a couple of examples. Assume two pre-trained models - an employee churn propensity model to assign a probability to an employee to leave a company and a patient infection propensity model to assign a probability to a hospital patient to develop a site infection. Both models are developed using domain-specific data collected from multiple sources that give them reasonable predictive power. The employee churn model uses data from different enterprises with varying numbers of employees. The patient infection model uses data from different hospitals of different sizes (as determined by the number of beds). Both these models have reasonable accuracy out of the box when applied to a specific enterprise or a specific hospital. However, to increase their accuracy for that specific company or hospital, the respective data science teams can fine-tune the models using transfer learning   [[5]](Chapter7.html#ftnt5) with the company or hospital-specific dataset.
+As shown in Figure 7.5, there is a semi-automated ML between the AutoML and manual ML model development where you have off-the-shelf pre-trained models available for use. Such pre-trained models target domain-specific use cases. Their usage is expected in enterprises with data science teams who want accelerators to solve a business problem. These enterprises do not have the luxury of starting from scratch due to the competitive landscape but have data scientists who can improve and fine-tune the pre-trained models. Let us explain using a couple of examples. Assume two pre-trained models - an employee churn propensity model to assign a probability to an employee to leave a company and a patient infection propensity model to assign a probability to a hospital patient to develop a site infection. Both models are developed using domain-specific data collected from multiple sources that give them reasonable predictive power. The employee churn model uses data from different enterprises with varying numbers of employees. The patient infection model uses data from different hospitals of different sizes (as determined by the number of beds). Both these models have reasonable accuracy out of the box when applied to a specific enterprise or a specific hospital. However, to increase their accuracy for that specific company or hospital, the respective data science teams can fine-tune the models using transfer learning   [[5]](Chapter7.html#ftnt5) with the company or hospital-specific dataset. Large Langugage Models (LLMs) that have gained recent popularity (as of the writing of this book) are made enterprise specific using this technique. Fine-tuning LLMs is challenging given the large parameter size of the models and we discuss this under LLMOps in Chapter 8. 
 
 
 
@@ -191,13 +194,16 @@ Figure 7.5: ML model development from manual to AutoML
 Closely associated with the concepts of AutoML, semi-auto ML and manual ML is how much code you will have to write when using them. As indicated in Figure 7.5, this introduces the associated concepts of low-code or no-code that differentiate from full-code -
 
 
-Full-code   –  when you write code for an ML model (for example using libraries such as scikit-learn, TensorFlow, or PyTorch). Associated with manual ML.
+<ins> Full-code </ins>
+When you write code for an ML model (for example using libraries such as scikit-learn, TensorFlow, or PyTorch). Associated with manual ML.
 
 
-No-code   – when you use graphical tools such as drag-and-drop components on a workspace and connect them with arrows to build a system without writing any code. Associated with semi-auto ML (no fine-tuning, just use the pre-built ML model as-is) and AutoML (use the automatically built ML model as-is).
+<ins> No-code </ins>
+When you use graphical tools such as drag-and-drop components on a workspace and connect them with arrows to build a system without writing any code. Associated with semi-auto ML (no fine-tuning, just use the pre-built ML model as-is) and AutoML (use the automatically built ML model as-is).
 
 
-Low-code   –  when you use similar graphical tools but may have to update settings in a configuration file or update parameters in a code file or write some basic scripts. Also associated with both semi-auto ML (update scripts to fine-tune and train the pre-built ML model with your dataset) and AutoML (update scripts to change hyperparameters, if allowed by the AutoML framework).
+<ins> Low-code </ins>
+When you use similar graphical tools but may have to update settings in a configuration file or update parameters in a code file or write some basic scripts. Also associated with both semi-auto ML (update scripts to fine-tune and train the pre-built ML model with your dataset) and AutoML (update scripts to change hyperparameters, if allowed by the AutoML framework).
 
 
 ##  Model Card
@@ -226,7 +232,7 @@ Just like a nutrients facts label tells you every detail about the product - how
 1.   Quantitative analysis   - what are the results of model analysis.
 
 
-1.   Ethical considerations   - what ethical aspects (bias and fairness discussed in Chapter 13) was taken care of to build the model.
+1.   Ethical considerations   - what ethical aspects (bias and fairness discussed in Chapter 13) was taken into account to build the model.
 
 
 1.   Caveats and recommendations   - warnings and recommendations on using the model.
@@ -276,7 +282,7 @@ Approval Workflows are based on the concepts of Roles and Requests. A workflow t
 In addition, an ideal workflow should be customizable to suit the needs of the organization and should maintain a log of requests and approvals (by whom and when), thus providing a complete audit trail.
 
 
-Let us follow the workflow in Fig. 7.6. Assume a data scientist completes an ML model. Next, a manager reviews the model and provides feedback. Once the model is approved by the manager, it is promoted for validation and testing in quality assurance (QA). In QA, a data analyst (or any QA specialist) tests the model. If the model has issues, then the data analyst provides feedback to the data scientist, the model is rebuilt, and the cycle is repeated. Once the model passes the QA test, the data analyst approves and promotes the model to production. In production, an IT engineer deploys the model. All the workflow roles, responsibilities, and subsequent actions are managed, labeled, identified, and controlled using approval workflows. Such workflows are often managed by MLOps platforms [7].
+Let us describe the workflow in Fig. 7.6. Assume a data scientist completes a ML model. Next, a manager reviews the model and provides feedback. Once the model is approved by the manager, it is promoted for validation and testing in quality assurance (QA). In QA, a data analyst (or any QA specialist) tests the model. If the model has issues, then the data analyst provides feedback to the data scientist, the model is rebuilt, and the cycle is repeated. Once the model passes the QA test, the data analyst approves and promotes the model to production. In production, an IT engineer deploys the model. All the workflow roles, responsibilities, and subsequent actions are managed, labeled, identified, and controlled using approval workflows. Such workflows are often managed by MLOps platforms [7].
 
 
 In conclusion, the demonstrated approval workflow maintains a complete log of approvals (by whom and when) and promotions (dev to QA and QA to production) for a production ML model. Such model governance improves the ML production lifecycle with streamlined processes and accountability in a collaborative environment.
