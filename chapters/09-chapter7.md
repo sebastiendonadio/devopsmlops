@@ -276,7 +276,8 @@ Approval Workflows are processes designed to ensure the authorized flow of infor
 <center>
 
 ![](images/images7/image4.png)
-Figure 7.6: Model approval workflow based on different roles and responsibilities
+
+  Figure 7.6: Model approval workflow based on different roles and responsibilities
 
 </center>
 
