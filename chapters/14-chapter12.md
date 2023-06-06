@@ -17,7 +17,7 @@ We start this chapter highlighting the need for monitoring ML models.
 You need to monitor a ML model in production because the performance of the model may deviate from the performance observed during training. Let us understand how this may happen.
 
 
-As illustrated in Figure 12.1, you can think of a ML model as having data inputs   X   and output   y  . In terms of probabilities, there is the input probability   P(X)  , the input-conditional output probability   P(y|X),   and the output marginal probability   P(y)  .
+As illustrated in Figure 12.1, you can think of a ML model as having data inputs   X   and output   y  . In terms of probabilities, there is the input probability   P(X)  , the (input) conditional output probability   P(y|X),   and the output marginal probability   P(y)  .
 
 
 
@@ -77,7 +77,7 @@ Figure 12.2: Biased training sample distribution different from the test sample
 </center>
 
 
-2.   Non-stationary environment - an ML production model that is receiving outside data may be exposed to a non-stationary environment where the data characteristics (such as mean and variance) are changing with time (as illustrated in Figure 12.3) and the data processing does not correct for it. For example, trending data such as movie ticket sales over the years is data from a non-stationary environment. Note that there are data processing techniques available to change a non-stationary data to a stationary data but are beyond the scope of this chapter.
+2.   Non-stationary environment - an ML production model that is receiving outside data may be exposed to a non-stationary environment where the data characteristics (such as mean and variance) are changing with time (as illustrated in Figure 12.3) and the data processing does not correct for it. For example, trending data such as movie ticket sales over the years is data from a non-stationary environment. Note that there are data processing techniques available to change a non-stationary data to a stationary data but are beyond the scope of this book.
 
 
 <!-- <p align="center">
@@ -121,7 +121,7 @@ Figure 12.4: Covariate shift with different distribution in training (before) an
 
 </center>
 
-An example of covariate shift is when an image ML model is developed to detect cars using black-and-white pictures and the production data contains colored images12 of the same cars as in the training data. Another example of covariate shift is when a spoken English speech recognition algorithm to detect what is being said is trained using an Australian accent and used an American accent. A third example is when a disease detection algorithm using patient data is trained with data of 20 and 30-year-olds and used on Medicare (ages 65 or older) population data.
+An example of covariate shift is when an image ML model is developed to detect cars using black-and-white pictures and the production data contains colored images of the same cars as in the training data. Another example of covariate shift is when a spoken English speech recognition algorithm to detect what is being said is trained using an Australian accent and used an American accent. A third example is when a disease detection algorithm using patient data is trained with data of 20 and 30-year-olds and used on Medicare (ages 65 or older) population data.
 
 
 ###  Detect Covariate Shift
@@ -193,7 +193,7 @@ When the ML model input and output data distributions do not change, but the con
 ###  Detect Concept Shift
 
 
-Concept shift is tricky to detect given the input and output data distributions remain unchanged. One way to detect it is to maintain a “golden dataset” where you have the expected result values (regression test). Run the golden dataset through the current ML model and compare the new results with the expected results. If there is a significant change detected, that is an indicator of a concept shift.
+Concept shift is tricky to detect given the input and output data distributions remain unchanged. One way to detect it is to maintain a “golden dataset” where you have the expected result values (regression test as discussed in Chapter 12). Run the golden dataset through the current ML model and compare the new results with the expected results. If there is a significant change detected, that is an indicator of a concept shift.
 
 
 ###  Correct Prior Probability Shift
@@ -247,7 +247,7 @@ If the ML model performance monitoring detects deterioration and nothing on the 
 ##  System Health Operational Monitoring
 
 
-The production machine on which the ML model is running may have multiple issues with processor and memory. For example, if there is a processor intensive process running on the same machine and starving the ML model, then the ML model may not respond to input data in time. Likewise, the same ML model phenomenon may occur if there is a memory hungry process running on the same production machine. Additionally, if there is an issue with the rate of input data in the machine due to outside interference or a denial-of-service attack on the production machine, this may result in increased latency where the ML model is not responding in time.
+Another reason for ML model performance deterioration is that the production machine on which the ML model is running may have multiple issues with processor and memory. For example, if there is a processor intensive process running on the same machine and starving the ML model, then the ML model may not respond to input data in time. Likewise, the same ML model phenomenon may occur if there is a memory hungry process running on the same production machine. Additionally, if there is an issue with the rate of input data in the machine due to outside interference or a denial-of-service attack on the production machine, this may result in increased latency where the ML model is not responding in time.
 
 
 ##  Detect System Health Change
@@ -273,7 +273,7 @@ Once a machine issue is detected, it is best to shut down the ML model and attem
 ## Summary
 
 
-In this chapter we discuss why ML model monitoring is required, and the concepts behind detection and correction. We also outline different reasons that a ML model may be performing different-than-expectation in production. In the next chapter, we look at ML model fairness.
+In this chapter we discuss why ML model monitoring is required, and the concepts behind detection and correction. We also outline different reasons that a ML model may be performing different-than-training in production. In the next chapter, we look at ML model fairness.
 
 
 ------------------------------
