@@ -29,7 +29,7 @@ A good practice in software engineering is to write reusable code and leverage e
 1.   EDA - very specific to the data characteristics, but the statistical concepts used for EDA (such as mean/variance) can be reused - this is related to data discovery that is part of but not specific to ML model development. For example, data discovery is needed also for data visualization.
 
 
-1.   Feature Engineering - this is about developing features that are characteristics of the data (Chapter 5). However, these features may be useful in other business problems (and ML models) that require the same data. For example, a feature that aggregates hourly data to daily data can be used in multiple different types of forecasting models. Therefore, the potential for reuse.
+1.   Feature Engineering - this is about developing features that are characteristics of the data (Chapter 5). However, these features may be useful in other business problems (and ML models) that require the same data. For example, a feature that aggregates hourly data to daily data can be used in multiple different types of forecasting models. Therefore, potential for reuse.
 
 
 1.   Algorithmic Fine-tuning - this is specific to the algorithm and the data characteristics, hence not reusable.
@@ -58,7 +58,7 @@ Therefore feature engineering holds the promise of reusability among the differe
 ##  What is a Feature Store?
 
 
-A feature store is a repository for features that includes feature development and feature cataloging. This promotes feature discovery and reuses across different ML applications. A feature store connects to the data ingestion and is the interface between an ML algorithm and data. The basic components of a feature store are shown in Figure 6.2 and discussed below   [[1]](Chapter6.html#ftnt1).
+A feature store is a repository for features that includes feature development and feature cataloging. This promotes feature discovery and reuses across different ML applications. A feature store connects to the data ingestion and is the interface between a ML algorithm and data. The basic components of a feature store are shown in Figure 6.2 and discussed below   [[1]](Chapter6.html#ftnt1).
 
 
 <!-- <p align="center">
@@ -108,14 +108,13 @@ With the above main feature store components, the functionalities supported are:
 1.   Serving   - need to support both training (batch mode) and inference (such as streaming) modes.
 
 
-1.   Governance   - need governance (to manage the features and enable reuse) such as
-1.   Access -  control to decide who gets access to work on which features.
+1.  Access -  control to decide who gets access to work on which features.
 
 
 1.   Ownership - identify feature ownership i.e. responsibility for maintaining and updating features.
 
 
-1.   Regulatory Audit - check for bias/ethics and comply with compliance regulations to ensure that the developed features are not in violation.
+1.   Governance and Regulatory Audit - check for bias/ethics and comply with compliance regulations to ensure that the developed features are not in violation (for example, no features based on race or ethnicity).
 
 
 1.   Lineage - maintain data source lineage for transparency.
@@ -135,30 +134,45 @@ Aggregations and transformations are two popular feature engineering that can be
 Let's review the data type with their transformation and aggregation techniques:
 
 
-(a) 
-  Linear Regression
+(a) Continuous data type
   
-  Transformation - Continous
-  
-  Aggregation - Univariate: absolute value, imputation, mean center, winsorize, smoothing/averaging, binning, change scale of data using for example log or inverse or power   [[2]](Chapter6.html#ftnt2)  transformations. <br> Bivariate: the difference between 2 variables, odds-ratio   [[3]](Chapter6.html#ftnt3) | Mean, median, standard deviation, variance.
+  Transformation
+
+Univariate: absolute value, imputation, mean center, winsorize, smoothing/averaging, binning, change scale of data using for example log or inverse or power   [[2]](Chapter6.html#ftnt2)  transformations. 
+
+<br> Bivariate: the difference between 2 variables, odds-ratio   [[3]](Chapter6.html#ftnt3)
+
+Aggregation
+
+Mean, median, standard deviation, variance.
 
 
 
 
-(b) 
-Categorical unordered aka nominal
+(b) Categorical unordered aka nominal data type
   
-  Transformation - Dummy encoding: assign numbers to the levels and ensure that if there are   K   levels you encode using only   K-1   new variables. This is to ensure that for algorithms such as linear regression the coefficient matrix is not over-determined and is invertible. <br> One hot encoding - encode each level as a vector where if there are   K   levels the vector is of size   K. <br> Feature vectors: use vectors to encode each level  (vectors are usually <   K   size if there are   K   levels) where the distance (such as Euclidean) between the vectors are semantically determined. Thus semantically similar levels have vectors close to each other by distance measure. For example, encoding colors with feature vectors will have blue and azure vectors close to each other in distance.
+  Transformation
+
+Dummy encoding: assign numbers to the levels and ensure that if there are   K   levels you encode using only   K-1   new variables. This is to ensure that for algorithms such as linear regression the coefficient matrix is not over-determined and is invertible. 
   
-  Aggregation - count/frequency of a specific level, the number of times a level is hit in a given period.
+  <br> One hot encoding - encode each level as a vector where if there are   K   levels the vector is of size   K. 
+  
+  <br> Feature vectors: use vectors to encode each level  (vectors are usually <   K   size if there are   K   levels) where the distance (such as Euclidean) between the vectors are semantically determined. Thus semantically similar levels have vectors close to each other by distance measure. For example, encoding colors with feature vectors will have blue and azure vectors close to each other in distance.
+  
+  Aggregation
+  
+  Count/frequency of a specific level, the number of times a level is hit in a given period.
  
  
-(c) 
-Categorical ordered aka ordinal 
+(c) Categorical ordered aka ordinal data type
 
-Transformation - Numbering: assign numbers in ascending or descending order. For example, if an alert has low, medium, and high levels, the corresponding encoding maybe 0, 1, or 2 to indicate the order of criticality.
+Transformation
+
+Numbering: assign numbers in ascending or descending order. For example, if an alert has low, medium, and high levels, the corresponding encoding maybe 0, 1, or 2 to indicate the order of criticality.
   
-Aggregation - Same as unordered categorical.
+Aggregation
+
+Same as unordered categorical.
 
 
 Next, we outline the benefits and challenges of a feature store and list 3 popular open-source feature stores.
@@ -214,7 +228,7 @@ In this section we introduce 3 open-source feature stores -
 1.   Hopworks Feature Store (   [https://www.hopsworks.ai/](https://www.google.com/url?q=https://www.hopsworks.ai/&sa=D&source=editors&ust=1681619228595000&usg=AOvVaw3w6qF9bkiBOePSWYuNLlam)    )  - open-source feature store that can ingest data from the cloud and on-premise and is a component of Hopworks ML platform (that supports ML model training and serving).
 
 
-There is a list of commercially available feature stores at    [https://www.featurestore.org/](https://www.google.com/url?q=https://www.featurestore.org/&sa=D&source=editors&ust=1681619228595415&usg=AOvVaw0rMlGOVHyF-B3ElC6cgvWt)    .
+There is a list of commercially available feature stores at    [https://www.featurestore.org/](https://www.google.com/url?q=https://www.featurestore.org/&sa=D&source=editors&ust=1681619228595415&usg=AOvVaw0rMlGOVHyF-B3ElC6cgvWt).
 
 
 ##  Summary
