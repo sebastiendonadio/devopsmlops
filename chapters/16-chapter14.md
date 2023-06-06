@@ -13,7 +13,7 @@ We start with the concept of antifragility.
 ##  What is Antifragility?
 
 
-Antifragility as the name suggests is the opposite of fragility [[1]]. So what does that mean? Let's start with fragility - it means things or systems that break down when they are subject to randomness, for example with vibrations. So what is the opposite of this phenomenon - well, it is not that things or systems can handle randomness. That is called robustness. The opposite is that instead of breaking down, systems become stronger when subject to randomness. This is called antifragility.
+Antifragility as the name suggests is the opposite of fragility [[1]](Chapter14.html#ftnt1). So what does that mean? Let's start with fragility - it means things or systems that break down when they are subject to randomness, for example with vibrations. So what is the opposite of this phenomenon - well, it is not that things or systems can handle randomness. That is called robustness. The opposite is that instead of breaking down, systems become stronger when subject to randomness. This is called antifragility.
 
 
 Machines are fragile - they do not do well when encountering randomness. Humans, on the other hand, are antifragile. When we manage unforeseen situations (i.e. randomness) we gain additional experience and become stronger. In the next section, we discuss the association between antifragility and ML models.
@@ -93,7 +93,7 @@ It is recommended that when you are building pipelines and training ML models, y
 Additionally, if you are using a cloud provider for ML model training you can use a $CO_2$ calculator   [[7]](Chapter14.html#ftnt7)     to choose the least carbon-emitting data center. One of the factors in the calculation is the power grid used by the cloud provider based on whether the energy is generated using renewable (solar, hydro, wind) or nonrenewable (coal) sources.
 
 
-Research highlights the environmental price to pay to train large language models [[8]].
+Research highlights the environmental price to pay to train large language models [[8]](Chapter14.html#ftnt8).
 
 
 ## Summary
