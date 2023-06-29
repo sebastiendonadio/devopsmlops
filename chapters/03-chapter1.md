@@ -367,9 +367,9 @@ If you would like to add more commands to this file, it is possible. We just nee
 #!/bin/bash
 
 echo     -n     "This book is useful to know how to count to 5"
-for     ((     iterator  =  0  ; counter  <  5  ; counter++   ))
+for     ((     counter  =  0  ; counter  <  5  ; counter++   ))
 do
-echo     -n     "$iterator "
+echo     -n     "$counter "
 done
 ```
 
