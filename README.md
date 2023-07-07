@@ -6,8 +6,6 @@ You may browse its content [here](chapters/).
 
 This book is also available on [Leanpub](https://leanpub.com/devopsmlops) (PDF, EPUB).
 
-![Book cover](chapters/images/imagesintro/cover.png)
-
 ## Development notes
 
 You can create this book by using the Makefile provided here. This uses [Pandoc](https://pandoc.org/). If you want to build the project, create a simlink to the images or just copy the images directory to the root.
