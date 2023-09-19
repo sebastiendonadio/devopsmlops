@@ -195,11 +195,6 @@ There are 2 types of data feedback in ML models -
 The motivation behind data feedback is to institute a cycle of model retraining and data collection also known as data flywheel (Figure 8.5). The flywheel concept is from Jim Collins   [[3]](Chapter8.html#ftnt3) and it depicts a cycle that is enabled by all the different components and leads to (continuous) improvement.
 
 
-From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a specific time heuristic such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implicit) feedback.
-
-In the next section, we outline three popular open-source pipelines to use with your ML code.
-
-
 <!-- <p align="center">
   <img src="images/images8/image6.png" alt="Alt text" width="60%" />
   <br>
@@ -215,6 +210,17 @@ In the next section, we outline three popular open-source pipelines to use with 
 
 </center>
 
+From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a specific time heuristic such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implicit) feedback. Let us take a closer look at CT.
+
+###  Continuous Training (CT)
+In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training 
+
+In the next section, we outline three popular open-source pipelines to use with your ML code. CT is triggered with new data and is executed in either methodology
+
+1.   stateless training - this is when training with the new data removes all current model (parameter) weights (erases all model knowledge) and starts training the model from scratch. This works well when you do not have a lot of training data to limit the time (and cost) to regularly train a model from scratch.
+
+
+1.   Stateful training (aka fine-tuning or transfer learning) - this is when training with the new (additional) data builds upon the knowledge (parameters) of the existing model. This works well whenyou have a large dataset that keeps growing such that training from scratch is expensive (time and cost).
 
 
 ###  Open Source Pipeline Implementations
