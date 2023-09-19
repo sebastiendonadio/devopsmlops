@@ -215,10 +215,10 @@ From a ML perspective, the data flywheel concept is tied to Continuous Training 
 ##  Continuous Training (CT)
 In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training is triggered with new data and is executed in either methodology
 
-1.      Stateless training - this is when training with the new data deletes all current model (parameter) weights (erases all model knowledge) and starts training the model from scratch. This works well when you do not have a lot of training data to restrict the time (and cost) to regularly train a model from scratch.
+1. Stateless training - this is when training with the new data deletes all current model (parameter) weights (erases all model knowledge) and starts training the model from scratch. This works well when you do not have a lot of training data to restrict the time (and cost) to regularly train a model from scratch.
 
 
-1.      Stateful training (aka fine-tuning or transfer learning) - this is when training with the new (additional) data builds upon the knowledge (parameters) of the current model (keeping the existing parameter values). This works well when you have a large dataset that keeps growing such that training from scratch is expensive (time and cost).
+1. Stateful training (aka fine-tuning or transfer learning) - this is when training with the new (additional) data builds upon the knowledge (parameters) of the current model (keeping the existing parameter values). This works well when you have a large dataset that keeps growing such that training from scratch is expensive (time and cost).
 
 In the next section, we outline three popular open-source pipelines to use with your ML code.
 
