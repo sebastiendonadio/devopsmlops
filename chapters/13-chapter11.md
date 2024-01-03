@@ -211,7 +211,7 @@ The difference between A/B testing and canary testing is that the first one, the
 The challenge with A/B testing from the previous section is that there is no way to dynamically prioritize a specific model (say A or B) based on its performance while in production. This is what can be done with multi-armed bandit testing (MAB). MAB is a simplified version of reinforcement learning that balances exploration and exploitation. Assume you have chosen a model for production deployment. Exploration is when you are exploring other models (for example, different hyperparameter but same algorithm as discussed in Chapter 8) and comparing their performance vis-a-vis your production model. Exploitation is when you are focused only on the production model to squeeze out the best performance.
 
 
-In MAB testing, the routing of production data is governed by a router that analyzes the performance of the models under test. So for a scenario akin to A/B testing, the MAB router would evaluate the performances of A and B models. Based on the evaluation result, the majority of the inference data is routed to the best-performing model. Minority subsets of the inference data is randomly routed to the remaining model(s), as illustrated in Figure 11.3. This dynamic strategy is a balance between exploitation (the majority of the data to the best-performing model) and exploration (the minority of the data to the other models). The phrase multi-armed comes from the scenario where you are always evaluating and exploring multiple models.
+In MAB testing, the routing of production data is governed by a router that analyzes the performance of the models under test. So for a scenario akin to A/B testing, the MAB router would evaluate the performances of A and B models. Based on the evaluation result, the majority of the inference data is routed to the best-performing model. Minority subsets of the inference data are randomly routed to the remaining model(s), as illustrated in Figure 11.3. This dynamic strategy is a balance between exploitation (the majority of the data to the best-performing model) and exploration (the minority of the data to the other models). The phrase multi-armed comes from the scenario where you are always evaluating and exploring multiple models.
 
 
 In the next section, we discuss the case when you do not have multiple models to test in production but a single update to an existing production model.
@@ -264,6 +264,6 @@ In the past, testing a user interface always required manual intervention. It wa
 ##  Summary
 
 
-In this chapter, we enforced the importance of testing in the DevOps/MLOps workflow. We learned how to create a unit test, and integration test and talked about all the other specific tests that ensure software and model quality. In the next chapter, we will talk about the monitoring step of the workflow.
+In this chapter, we enforced the importance of testing in the DevOps/MLOps workflow. We learned how to create a unit test, an integration test and talked about all the other specific tests that ensure software and model quality. In the next chapter, we will talk about the monitoring step of the workflow.
 
 \newpage
