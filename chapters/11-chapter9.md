@@ -89,7 +89,7 @@ Figure 9.2: SHAP feature importance
 </center>
 
 
-In contrast to the aforementioned global view, Shapley values also generate a local instance-specific view as illustrated in Figure 9.3. In Shapely terminology this is known as a force plot and demonstrates why a particular data instance has a specific risk value (0.81), and what the contribution of each feature is to change that risk value from the average. For example, the feature value lab_creatinine_serum_avg is increasing the risk value (from the average) for this specific instance.
+In contrast to the aforementioned global view, Shapley values also generate a local instance-specific view as illustrated in Figure 9.3. In Shapley terminology this is known as a force plot and demonstrates why a particular data instance has a specific risk value (0.81), and what the contribution of each feature is to change that risk value from the average. For example, the feature value lab_creatinine_serum_avg is increasing the risk value (from the average) for this specific instance.
 
 
 In conclusion, Shapley values are important for ML model explainability that is algorithm agnostic due to the cooperative game theory approach.
