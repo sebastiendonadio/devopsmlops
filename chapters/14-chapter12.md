@@ -124,7 +124,7 @@ As we explained earlier, covariate shift happens when   p(X)   in Figure 12.1 ch
 
 </center>
 
-An example of covariate shift is when an image ML model is developed to detect cars using black-and-white pictures and the production data contains colored images of the same cars as in the training data. Another example of covariate shift is when a spoken English speech recognition algorithm to detect what is being said is trained using an Australian accent and used an American accent. A third example is when a disease detection algorithm using patient data is trained with data of 20 and 30-year-olds and used on Medicare (ages 65 or older) population data.
+An example of covariate shift is when an image ML model is developed to detect cars using black-and-white pictures and the production data contains colored images of the same cars as in the training data. Another example of covariate shift is when a spoken English speech recognition algorithm to detect what is being said is trained with an Australian accent and used for inference on an American accent. A third example is when a disease detection algorithm using patient data is trained with data of 20 and 30-year-olds and used on Medicare (ages 65 or older) population data.
 
 
 ###  Detect Covariate Shift
