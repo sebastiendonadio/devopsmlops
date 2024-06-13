@@ -264,7 +264,7 @@ LLMOps includes the steps needed to operationalize a Large Language Model (LLM) 
 2. Retrieval Augmented Generation (RAG)
 3. Fine tuning
 
-There is also the topic of testing LLMs for hallucinations (where LLMs make things up and pass them as facts), bias (same as ML bias discussed in this book), and toxicity (where LLMs spew out racist and offensive responses) that we discuss in 
+There is also the topic of testing LLMs for hallucinations (where LLMs make things up and pass them as facts), bias (same as ML bias discussed in this book), and toxicity (where LLMs spew out racist and offensive responses). 
 
 
 ###  Prompt Engineering
