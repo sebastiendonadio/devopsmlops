@@ -274,7 +274,7 @@ Construct prompts to guide the LLM towards a specific type of answer and/or pers
 2. few-shot learning - give examples to the LLM to expect a response along similar lines to the examples
 3. chain-of-thought - give example of reasoning to expect similar chain of reasoning from the LLM to explain it output
 
-Challenges include constructing the prompt to nudge the expected LLM response, as well as the token or content size (prompt length) limitation for an LLM. There is also the issue of LLM forgetting the information in the middle of long contexts [[4]] (Chapter8.html#ftnt_ref4). Interestingly, humans exhibit similar behavior to mostly remember the first and last things on a list [[5]] (Chapter8.html#ftnt_ref5).
+Challenges include constructing the prompt to nudge the expected LLM response, as well as the token or content size (prompt length) limitation for an LLM. There is also the issue of LLM forgetting the information in the middle of long contexts [[4]](Chapter8.html#ftnt_ref4). Interestingly, humans exhibit similar behavior to mostly remember the first and last things on a list [[5]](Chapter8.html#ftnt_ref5).
 
 ### Retrieval Augmented Generation (RAG)
 This methodology retrieves information relevant to quert from a database and sends that information to the LLM to compose a query response. The benefits of RAG are multiple:
@@ -307,10 +307,10 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 [[3]](Chapter8.html#ftnt_ref3)    J. Collins,    [Good to Great: Why Some Companies Make the Leap and Others Don’t, HarperBusiness, 2001.](https://www.google.com/url?q=https://smile.amazon.com/Good-Great-Some-Companies-Others/dp/0066620996/ref%3Dsr_1_1?keywords%3Djim%2Bcollins%2Bgood%2Bto%2Bgreat%26qid%3D1662917929%26sprefix%3DJim%2Bcol%252Caps%252C103%26sr%3D8-1&sa=D&source=editors&ust=1681619251624332&usg=AOvVaw2Nw2smFXf9pQ0pnNupy-8E)
 
 
-[[4]] (Chapter8.html#ftnt_ref4) N.F. Liu et al, _Lost in the Middle: How Language Models use Long Contexts_, https://arxiv.org/pdf/2307.03172, 2023.
+[[4]](Chapter8.html#ftnt_ref4) N.F. Liu et al, _Lost in the Middle: How Language Models use Long Contexts_, https://arxiv.org/pdf/2307.03172, 2023.
 
 
-[[5]] (Chapter8.html#ftnt_ref5) Serial-position effect, https://en.wikipedia.org/wiki/Serial-position_effect, accessed 2024.
+[[5]](Chapter8.html#ftnt_ref5) Serial-position effect, https://en.wikipedia.org/wiki/Serial-position_effect, accessed 2024.
 
 
 [[6]](Chapter8.html#ftnt_ref6)   E. Hu et al, _LoRA: Low-Rank Adaptation of Large Language Models_, https://arxiv.org/pdf/2106.09685.pdf, 2021.
