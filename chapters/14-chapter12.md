@@ -206,6 +206,11 @@ Concept shift is tricky to detect given the input and output data distributions 
 As with the other drifts, a simple solution to a concept drift is to retrain the ML model with the new production data.
 
 
+##  Relation Between Covariate Shift and Prior Probability Shift
+
+Interestingly, there are use-cases where a covaraite shift results in a prior probability shift, and where it does not. An example of the former is a spam algorithm trained on emails at a small business and then used to detect spam at a large Fortune 500 company. The words and types of spam emails may change (covariate shift) in the larger company resulting in a higher proportion of spam emails (prior probability shift). An example of the latter is the click-through rate for specific content that may not change (no prior probability shift) even when the surrounding content is updated (covariate shift).
+
+
 ##  Monitor Transient   ML Model Performance Changes
 
 
