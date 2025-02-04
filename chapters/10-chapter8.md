@@ -213,12 +213,20 @@ The motivation behind data feedback is to institute a cycle of model retraining 
 From a ML perspective, the data flywheel concept is tied to Continuous Training (CT). CT forms the third part of a CI/CD/CT pipeline where a ML model is retrained with new training data. The need to retrain is enabled by different triggers such as data drift (Chapter 12) or a specific time heuristic such as the first of each month. The data flywheel ensures that when CT is triggered there is new training data available to deliver an updated model. For example, a recommender system is a good example of collecting training data using a feedback loop - when a user clicks on a recommendation that is used as positive (implicit) feedback. Let us take a closer look at CT.
 
 ##  Continuous Training (CT)
-In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training is triggered with new data and is executed in either methodology
+In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training is triggered with new data and is executed in either methodology (Figure 8.6 [[4]](Chapter8.html#ftnt_ref4))
 
 1. Stateless training - this is when training with the new data deletes all current model (parameter) weights (erases all model knowledge) and starts training the model from scratch. This works well when you do not have a lot of training data to restrict the time (and cost) to regularly train a model from scratch.
 
 
 1. Stateful training (aka fine-tuning or transfer learning) - this is when training with the new (additional) data builds upon the knowledge (parameters) of the current model (keeping the existing parameter values). This works well when you have a large dataset that keeps growing such that training from scratch is expensive (time and cost).
+
+<!-- <p align="center">
+  <img src="images/images8/continuous training.png" alt="Alt text" width="90%" />
+  <br>
+  <em>Figure 8.6 - Continuous Training Methodologies
+</em>
+</p> -->
+
 
 In the next section, we outline three popular open-source pipelines to use with your ML code.
 
@@ -226,7 +234,7 @@ In the next section, we outline three popular open-source pipelines to use with 
 ###  Open Source Pipeline Implementations
 
 
-There are multiple open-source pipeline implementations and we list 3 of them in this chapter. Note that most of these implementations use YAML (Yet Another Markup Language) files to define the pipeline components and dependencies (including external library versions). An example of such a YAML file pipeline definition is in Figure 8.6.
+There are multiple open-source pipeline implementations and we list 3 of them in this chapter. Note that most of these implementations use YAML (Yet Another Markup Language) files to define the pipeline components and dependencies (including external library versions). An example of such a YAML file pipeline definition is in Figure 8.7.
 
 
 ```yaml
@@ -242,7 +250,7 @@ depencies:
 ```
 <p align="center">
 
-  Figure 8.6: YAML file from spacy example of MLflow.
+  Figure 8.7: YAML file from spacy example of MLflow.
 </p>
 
 The popular pipeline frameworks are -
@@ -274,7 +282,7 @@ Construct prompts to guide the LLM towards a specific type of answer and/or pers
 2. few-shot learning - give examples to the LLM to expect a response along similar lines to the examples
 3. chain-of-thought - give example of reasoning to expect similar chain of reasoning from the LLM to explain it output
 
-Challenges include constructing the prompt to nudge the expected LLM response, as well as the token or content size (prompt length) limitation for an LLM. There is also the issue of LLM forgetting the information in the middle of long contexts [[4]](Chapter8.html#ftnt_ref4). Interestingly, humans exhibit similar behavior to mostly remember the first and last things on a list [[5]](Chapter8.html#ftnt_ref5).
+Challenges include constructing the prompt to nudge the expected LLM response, as well as the token or content size (prompt length) limitation for an LLM. There is also the issue of LLM forgetting the information in the middle of long contexts [[5]](Chapter8.html#ftnt_ref5). Interestingly, humans exhibit similar behavior to mostly remember the first and last things on a list [[6]](Chapter6.html#ftnt_ref5).
 
 ### Retrieval Augmented Generation (RAG)
 This methodology retrieves information relevant to quert from a database and sends that information to the LLM to compose a query response. The benefits of RAG are multiple:
@@ -286,9 +294,9 @@ Challenges include designing the data ingestion into the database such as chunki
 
 ###  Fine-tuning
 
-Large Language Models (LLMs) have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit (4 Bytes) architecture will require at least 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to finetune such large models in an efficient manner. One of the popular techniques is Low-Rank Adaption (LoRA) [[6]](Chapter8.html#ftnt6). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition (SVD). The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data. There is a quantized memoery version on LoRA called QLoRA that uses a low-precision storage method [[7]](Chapter8.html#ftnt7).
+Large Language Models (LLMs) have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit (4 Bytes) architecture will require at least 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to finetune such large models in an efficient manner. One of the popular techniques is Low-Rank Adaption (LoRA) [[7]](Chapter8.html#ftnt7). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition (SVD). The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data. There is a quantized memoery version on LoRA called QLoRA that uses a low-precision storage method [[8]](Chapter8.html#ftnt8).
 
-Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is because with SVD the significant features (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix. You can use a HuggingFace guide to try LoRA [[8]](Chapter8.html#ftnt8).
+Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is because with SVD the significant features (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix. You can use a HuggingFace guide to try LoRA [[9]](Chapter8.html#ftnt9).
 
 ##  Summary
 
@@ -307,18 +315,20 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 [[3]](Chapter8.html#ftnt_ref3)    J. Collins,    [Good to Great: Why Some Companies Make the Leap and Others Don’t, HarperBusiness, 2001.](https://www.google.com/url?q=https://smile.amazon.com/Good-Great-Some-Companies-Others/dp/0066620996/ref%3Dsr_1_1?keywords%3Djim%2Bcollins%2Bgood%2Bto%2Bgreat%26qid%3D1662917929%26sprefix%3DJim%2Bcol%252Caps%252C103%26sr%3D8-1&sa=D&source=editors&ust=1681619251624332&usg=AOvVaw2Nw2smFXf9pQ0pnNupy-8E)
 
 
-[[4]](Chapter8.html#ftnt_ref4) N.F. Liu et al, _Lost in the Middle: How Language Models use Long Contexts_, https://arxiv.org/pdf/2307.03172, 2023.
+[[4]](Chapter8.html#ftnt_ref4) Chip Huyen, Real-time machine learning: challenges and solutions, https://huyenchip.com/2022/01/02/real-time-machine-learning-challenges-and-solutions.html, accessed 2024.
+
+[[5]](Chapter8.html#ftnt_ref5) N.F. Liu et al, _Lost in the Middle: How Language Models use Long Contexts_, https://arxiv.org/pdf/2307.03172, 2023.
 
 
-[[5]](Chapter8.html#ftnt_ref5) Serial-position effect, https://en.wikipedia.org/wiki/Serial-position_effect, accessed 2024.
+[[6]](Chapter8.html#ftnt_ref6) Serial-position effect, https://en.wikipedia.org/wiki/Serial-position_effect, accessed 2024.
 
 
-[[6]](Chapter8.html#ftnt_ref6)   E. Hu et al, _LoRA: Low-Rank Adaptation of Large Language Models_, https://arxiv.org/pdf/2106.09685.pdf, 2021.
+[[7]](Chapter8.html#ftnt_ref7)   E. Hu et al, _LoRA: Low-Rank Adaptation of Large Language Models_, https://arxiv.org/pdf/2106.09685.pdf, 2021.
 
 
-[[7]](Chapter8.html#ftnt_ref7) T. Dettmers et al, _QLoRA: Efficient Finetuning of Quantized LLMs_, https://arxiv.org/pdf/2305.14314.pdf, 2023.
+[[8]](Chapter8.html#ftnt_ref8) T. Dettmers et al, _QLoRA: Efficient Finetuning of Quantized LLMs_, https://arxiv.org/pdf/2305.14314.pdf, 2023.
 
 
-[[8]](Chapter8.html#ftnt_ref8)   https://huggingface.co/docs/peft/task_guides/image_classification_lora 
+[[9]](Chapter8.html#ftnt_ref9)   https://huggingface.co/docs/peft/task_guides/image_classification_lora 
 
 \newpage
