@@ -238,19 +238,6 @@ In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training is triggered 
 </center>
 
 
-<!-- <p align="center">
-  <img src="images/images8/continuous_training.png" alt="Alt text" width="90%" />
-  <br>
-  <em>Figure 8.6 - Continuous Training Methodologies
-</em>
-</p> -->
-
-<center>
-![](images/images8/image6.png)
-
-  Figure 8.6: Continuous Training Methodologies
-
-</center>
 
 
 In the next section, we outline three popular open-source pipelines to use with your ML code.
