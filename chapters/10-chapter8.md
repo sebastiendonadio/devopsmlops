@@ -309,7 +309,7 @@ This methodology retrieves information relevant to quert from a database and sen
 
 There are different RAG patterns as depicted in Figure 8.8 [[7]](Chapter8.html#ftnt7). While the one-time retrieval is a standard implementation, the iterative retrieval treats each response (iteratively) as a query to retrieve the next round of information until the response is above a confidence level. The post-hoc retrieval checks the initial retrieval for discrepancies with some implementations using external knowledge such as the verify-and-edit framework.
 
-Challenges include designing the data ingestion into the database such as chunking strategy (hierarchical, fixed sized, semantic, among others), choosing the vector embeddings (large or small size), and choosing the vector database (open-source or proprietary),
+Challenges include designing the data ingestion into the database such as chunking strategy (hierarchical, fixed sized, semantic, among others), choosing the vector embeddings (large or small size), and choosing the vector database (open-source or proprietary).
 
 ###  Supervised Fine-tuning (SFT)
 
