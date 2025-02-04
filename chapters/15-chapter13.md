@@ -116,7 +116,9 @@ Figure 13.2: Pareto curve of fairness vs accuracy
 
 In this chapter, we understood ML model fairness and bias, the reason for ML model bias, and how to detect and correct the bias. We also discussed the trade-off when correcting for bias and making an ML model fairer. In the next chapter, we look at how to make an ML model robust to failures using anti-fragility.
 
+------------------------------
 
-[[1]](Chapter13.html#ftnt_ref1)     https://en.wikipedia.org/wiki/White_noise
+
+[[1]](Chapter13.html#ftnt_ref1)     White Noise, https://en.wikipedia.org/wiki/White_noise, accessed 2024.
 
 \newpage
