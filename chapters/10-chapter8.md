@@ -220,6 +220,24 @@ In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training is triggered 
 
 1. Stateful training (aka fine-tuning or transfer learning) - this is when training with the new (additional) data builds upon the knowledge (parameters) of the current model (keeping the existing parameter values). This works well when you have a large dataset that keeps growing such that training from scratch is expensive (time and cost).
 
+
+
+<!-- <p align="center">
+  <img src="images/images8/image6.png" alt="Alt text" width="60%" />
+  <br>
+  <em>Figure 8.5: Data Flywheel
+</em>
+</p> -->
+
+<center>
+
+![](images/images8/image6.png)
+
+  Figure 8.5: Data Flywheel
+
+</center>
+
+
 <!-- <p align="center">
   <img src="images/images8/continuous_training.png" alt="Alt text" width="90%" />
   <br>
