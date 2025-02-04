@@ -228,7 +228,7 @@ In ML, CT extends the DevOps CI/CD to CI/CD/CT. Continous training is triggered 
 </p> -->
 
 <center>
-![](images/images8/continuous_training.png)
+![](images/images8/image6.png)
 
   Figure 8.6: Continuous Training Methodologies
 
