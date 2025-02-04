@@ -273,10 +273,12 @@ The popular pipeline frameworks are -
 
 ##  Large Language Model Operations (LLMops)
 
-LLMOps includes the steps needed to operationalize a Large Language Model (LLM) for a variety of applications. This covers best practices from the perspectives of 
+LLMOps includes the steps needed to operationalize a Large Language Model (LLM) for a variety of applications. LLMs are pre-trained on a large corpora of datasets that enables it to learn language rules and comprehension. Pre-trained models have demonstrated good performance with appropriate prompting. The challenge with pre-trained models is that they may not be aligned to the specific desired task, therefore necessitating downstream fine-tuning.
+
+We introduce LLMOps best practices from the perspectives of 
 1. Prompt Engineering
 2. Retrieval Augmented Generation (RAG)
-3. Fine tuning
+3. Supervised Fine tuning (SFT)
 
 There is also the topic of testing LLMs for hallucinations (where LLMs make things up and pass them as facts), bias (same as ML bias discussed in this book), and toxicity (where LLMs spew out racist and offensive responses). 
 
@@ -296,13 +298,24 @@ This methodology retrieves information relevant to quert from a database and sen
 2. relevancy - you can use proprietary data stored in your database to compose a customized response
 3. recency - have the LLM respond using latest data that is available by a data refesh update to the database with no architecture modification
 
+
+<center>
+
+![](images/images8/rag_patterns.png)
+
+  Figure 8.8: RAG Patterns
+
+</center>
+
+There are different RAG patterns as depicted in Figure 8.8 [[7]](Chapter8.html#ftnt7). While the one-time retrieval is a standard implementation, the iterative retrieval treats each response (iteratively) as a query to retrieve the next round of information until the response is above a confidence level. The post-hoc retrieval checks the initial retrieval for discrepancies with some implementations using external knowledge such as the verify-and-edit framework.
+
 Challenges include designing the data ingestion into the database such as chunking strategy (hierarchical, fixed sized, semantic, among others), choosing the vector embeddings (large or small size), and choosing the vector database (open-source or proprietary),
 
-###  Fine-tuning
+###  Supervised Fine-tuning (SFT)
 
-Large Language Models (LLMs) have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit (4 Bytes) architecture will require at least 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to finetune such large models in an efficient manner. One of the popular techniques is Low-Rank Adaption (LoRA) [[7]](Chapter8.html#ftnt7). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition (SVD). The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data. There is a quantized memoery version on LoRA called QLoRA that uses a low-precision storage method [[8]](Chapter8.html#ftnt8).
+Large Language Models (LLMs) have billions of parameters that constrain the amount of RAM memory left for the data. For example, a 7B LLM assuming a 32-bit (4 Bytes) architecture will require at least 7 * 4 = 28 GB of RAM. Parameter Efficient Training (https://github.com/huggingface/peft) from HuggingFace introduces techniques to finetune such large models in an efficient manner. One of the popular techniques is Low-Rank Adaption (LoRA) [[8]](Chapter8.html#ftnt8). In this technique, a pre-trained LLM is fine-tuned with transfer learning where the weight updates are managed in a lower dimension than the original (large) dimension. The weight update matrix is decomposed to a lower dimension (much smaller than the dimension of the large mnodel weight matrix) using Singular Value Decomposition (SVD). The original weight matrix that has a large dimension is kept frozen while the lower dimension weight-change matrix is updated with the new data. There is a quantized memoery version on LoRA called QLoRA that uses a low-precision storage method [[9]](Chapter8.html#ftnt9).
 
-Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is because with SVD the significant features (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix. You can use a HuggingFace guide to try LoRA [[9]](Chapter8.html#ftnt9).
+Research has demonstrated that the lower dimension matrix performs comparatively well when the dimension is very small compared to relatively higher dimension. This is because with SVD the significant features (top vectors) that account for majority of the weight changes are common in both the very small and relatively higher dimensions. Moreover, LoRA is effective since the change matrix amplifies the important features that are not given high weight in the original weight matrix. You can use a HuggingFace guide to try LoRA [[10]](Chapter8.html#ftnt10).
 
 ##  Summary
 
@@ -328,13 +341,15 @@ In this chapter we looked at the motivations behind ML pipelines and the advanta
 
 [[6]](Chapter8.html#ftnt_ref6) Serial-position effect, https://en.wikipedia.org/wiki/Serial-position_effect, accessed 2024.
 
-
-[[7]](Chapter8.html#ftnt_ref7)   E. Hu et al, _LoRA: Low-Rank Adaptation of Large Language Models_, https://arxiv.org/pdf/2106.09685.pdf, 2021.
-
-
-[[8]](Chapter8.html#ftnt_ref8) T. Dettmers et al, _QLoRA: Efficient Finetuning of Quantized LLMs_, https://arxiv.org/pdf/2305.14314.pdf, 2023.
+[[7]](Chapter8.html#ftnt_ref7)   L. Huang et al, A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions, https://arxiv.org/pdf/2311.05232, 2024.
 
 
-[[9]](Chapter8.html#ftnt_ref9)   https://huggingface.co/docs/peft/task_guides/image_classification_lora 
+[[8]](Chapter8.html#ftnt_ref8)   E. Hu et al, _LoRA: Low-Rank Adaptation of Large Language Models_, https://arxiv.org/pdf/2106.09685.pdf, 2021.
+
+
+[[9]](Chapter8.html#ftnt_ref9) T. Dettmers et al, _QLoRA: Efficient Finetuning of Quantized LLMs_, https://arxiv.org/pdf/2305.14314.pdf, 2023.
+
+
+[[10]](Chapter8.html#ftnt_ref10)   https://huggingface.co/docs/peft/task_guides/image_classification_lora 
 
 \newpage
